@@ -99,8 +99,8 @@ class EtalabTemplate extends BaseTemplate {
                 <p class="pull-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
                 <p>
                     &copy; 2013 ETALAB, Inc. &middot;
-                    <a href="#">Privacy</a> &middot;
-                    <a href="#">Terms</a>
+                    <a href="#"><?php $this->msg( 'privacy' ); ?></a> &middot;
+                    <a href="#"><?php $this->msg( 'terms' ); ?></a>
                 </p>
             </footer>
 

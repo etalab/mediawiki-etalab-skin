@@ -19,6 +19,8 @@ $messages['en'] = array(
         'back-to-top' => 'Back to top',
         'sign-in-register' => 'Sign In / Register',
         'profile' => 'Profile',
+        'privacy' => 'Privacy',
+        'terms' => 'Terms',
 );
 
 /**
@@ -29,7 +31,9 @@ $messages['fr'] = array(
         'skinname-etalab' => "ETALAB",
         'etalab-desc' => "Skin bootstrap pour TALAB.",
         'etalab-site-desc' => 'La plate-forme ouverte des données publiques françaises',
-        'back-to-top' => 'En haut',
+        'back-to-top' => 'Haut de page',
         'sign-in-register' => 'Se connecter / S\'inscrire',
         'profile' => 'Profil',
+        'privacy' => 'Vie privée',
+        'terms' => 'Conditions légales',
 );
