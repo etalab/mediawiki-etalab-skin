@@ -8,6 +8,14 @@ function gravatar($email, $size=32) {
     return '<img src="' . $gravatar_link . '" />';
 }
 
+/**
+ * Get an URL from a title
+ */
+function wikiUrl($target) {
+    $title = Title::newFromText($target);
+    return $title->getLinkUrl();
+}
+
 
 /**
  * BaseTemplate class for ETALAB skin
@@ -20,7 +28,7 @@ class EtalabTemplate extends BaseTemplate {
 
         return array(
             array('Culture et communication', 'culture', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
-            array('Développement durable', 'wind', 'http://wiki.etalab2.fr/wiki/Le_D%C3%A9veloppement_Durable'),
+            array('Développement durable', 'wind', wikiUrl('Le Développement Durable')),
             array('Éducation et recherche', 'education', "$wgEtalabDataUrl/$lang/group/education-et-recherche"),
             array('État et collectivités', 'france', "$wgEtalabDataUrl/$lang/group/etat-et-collectivites"),
             array('Europe', 'europe', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
