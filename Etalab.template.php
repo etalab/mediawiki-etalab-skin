@@ -25,7 +25,6 @@ class EtalabTemplate extends BaseTemplate {
 
     private function getTopics($lang='fr') {
         global $wgEtalabDataUrl;
-
         return array(
             array('Culture et communication', 'culture', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
             array('Développement durable', 'wind', wikiUrl('Le Développement Durable')),
@@ -139,7 +138,7 @@ class EtalabTemplate extends BaseTemplate {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Data<small>.Gouv.fr</small></a>
+                <a class="navbar-brand" href="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl; ?>">Data<small>.Gouv.fr</small></a>
             </header>
 
             <div class="collapse navbar-collapse">
