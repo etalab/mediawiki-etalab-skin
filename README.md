@@ -33,6 +33,25 @@ MediaWiki skin for ETALAB
    (You may safely remove or comment out other mentions of
    `$wgDefaultSkin`.)
 
+4. Customize behavior with variables. (See below)
+
+
+## Custom options
+
+You can customize the skin behavior with the following options
+
+### ETALAB Data site url
+
+Customize the base URL used to feed the sidebar links and search
+by setting the ``$wgEtalabDataUrl`` in your ``LocalSettings.php``.
+
+Default value: 'http://data.gouv.fr'
+
+
+```php
+$wgEtalabDataUrl = 'http://www.etalab2.fr';
+```
+
 
 ## Hacking
 

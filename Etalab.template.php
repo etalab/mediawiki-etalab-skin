@@ -8,25 +8,28 @@ function gravatar($email, $size=32) {
     return '<img src="' . $gravatar_link . '" />';
 }
 
+
 /**
  * BaseTemplate class for ETALAB skin
  * @ingroup Skins
  */
 class EtalabTemplate extends BaseTemplate {
 
-    private function getTopics() {
+    private function getTopics($lang='fr') {
+        global $wgEtalabDataUrl;
+
         return array(
-            array('Culture et communication', 'culture', null),
+            array('Culture et communication', 'culture', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
             array('Développement durable', 'wind', 'http://wiki.etalab2.fr/wiki/Le_D%C3%A9veloppement_Durable'),
-            array('Éducation et recherche', 'education', null),
-            array('État et collectivités', 'france', null),
-            array('Europe', 'europe', null),
-            array('Justice', 'justice', null),
-            array('Monde', 'world', null),
-            array('Santé et solidarité', 'hearth', null),
-            array('Sécurité et défense', 'shield', null),
-            array('Société', 'people', null),
-            array('Travail, économie, emploi', 'case', null),
+            array('Éducation et recherche', 'education', "$wgEtalabDataUrl/$lang/group/education-et-recherche"),
+            array('État et collectivités', 'france', "$wgEtalabDataUrl/$lang/group/etat-et-collectivites"),
+            array('Europe', 'europe', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
+            array('Justice', 'justice', "$wgEtalabDataUrl/$lang/group/justice"),
+            array('Monde', 'world', "$wgEtalabDataUrl/$lang/group/monde"),
+            array('Santé et solidarité', 'hearth', "$wgEtalabDataUrl/$lang/group/sante-et-solidarite"),
+            array('Sécurité et défense', 'shield', "$wgEtalabDataUrl/$lang/group/securite-et-defense"),
+            array('Société', 'people', "$wgEtalabDataUrl/$lang/group/societe"),
+            array('Travail, économie, emploi', 'case', "$wgEtalabDataUrl/$lang/group/travail-economie-emploi"),
         );
     }
 

@@ -34,3 +34,6 @@ $wgResourceModules['skins.etalab'] = array(
     'remoteBasePath' => &$GLOBALS['wgStylePath'],
     'localBasePath' => &$GLOBALS['wgStyleDirectory'],
 );
+
+# Default options to customize skin behavior
+$wgEtalabDataUrl = 'http://data.gouv.fr';
