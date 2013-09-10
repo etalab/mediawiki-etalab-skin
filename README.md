@@ -36,7 +36,7 @@ MediaWiki skin for ETALAB
 4. Customize behavior with variables. (See below)
 
 
-## Custom options
+## Customizations
 
 You can customize the skin behavior with the following options
 
@@ -48,8 +48,11 @@ by setting the ``$wgEtalabDataUrl`` in your ``LocalSettings.php``.
 Default value: 'http://data.gouv.fr'
 
 
-```php
-$wgEtalabDataUrl = 'http://www.etalab2.fr';
+### Settings the theme to existing users
+
+```console
+$ cd maintenance
+$ php userOptions.php skin --old "vector" --new "etalab"
 ```
 
 
@@ -57,20 +60,20 @@ $wgEtalabDataUrl = 'http://www.etalab2.fr';
 
 We use bower, grunt, uglify and less to build assets so yee need to have them installed:
 
-```
-sudo npm install -g bower less uglifyjs grunt-cli
+```console
+$ sudo npm install -g bower less uglifyjs grunt-cli
 ```
 
 
 Install needed dependencies:
 
-```
-npm install && bower install
+```console
+$ npm install && bower install
 ```
 
 Build the assets:
 
-```
-grunt
+```console
+$ grunt
 ```
 
