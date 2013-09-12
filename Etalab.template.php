@@ -302,7 +302,7 @@ class EtalabTemplate extends BaseTemplate {
                 </ul>
             </div>
 
-            <form id="search-form" action="{{ url(lang, 'dataset') }}">
+            <form id="search-form" action="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
                 <div id="search-group" class="input-group input-group-lg">
                     <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
                         placeholder="<?php $this->msg('search') ?>">
