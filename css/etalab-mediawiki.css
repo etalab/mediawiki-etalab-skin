@@ -1,3 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Sansita+One);
+/**
+ * Common site styles and helpers.
+ */
 /**
  * Common site styles and helpers.
  */
@@ -6036,6 +6040,12 @@ td.visible-print {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.no-decoration {
+  text-decoration: none;
+}
+.no-decoration:hover {
+  text-decoration: none;
+}
 .btn-dark {
   color: #ffffff;
   background-color: #223346;
@@ -6155,6 +6165,7 @@ a.thumbnail-link:hover .thumbnail {
 #sidebar .panel-heading {
   background-color: transparent;
   border-bottom: none;
+  padding: 0;
 }
 #sidebar .panel-heading a {
   padding: 10px 15px;
@@ -6169,6 +6180,9 @@ a.thumbnail-link:hover .thumbnail {
 #sidebar .panel-heading a:focus {
   padding-left: 15px;
   background-color: #3d5772;
+}
+#sidebar .panel-title {
+  padding: 10px;
 }
 #sidebar .panel-body {
   background-color: #334c66;

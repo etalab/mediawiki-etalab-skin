@@ -115,10 +115,10 @@ class EtalabTemplate extends BaseTemplate {
 
 
         <!--[if lt IE 9]>
-            <script src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('js/etalab-legacy.min.js') ) ?>"></script>
+            <script src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('js/etalab-mediawiki-legacy.min.js') ) ?>"></script>
         <![endif]-->
         <!--[if gte IE 9]><!-->
-            <script src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('js/etalab.min.js') ) ?>"></script>
+            <script src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('js/etalab-mediawiki.min.js') ) ?>"></script>
         <!--<![endif]-->
 
         <?php $this->printTrail(); ?>
@@ -138,7 +138,7 @@ class EtalabTemplate extends BaseTemplate {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl; ?>">Data<small>.Gouv.fr</small></a>
+                <a class="navbar-brand" href="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl; ?>">Data.Gouv.fr</a>
             </header>
 
             <div class="collapse navbar-collapse">
@@ -310,6 +310,12 @@ class EtalabTemplate extends BaseTemplate {
                         <button class="btn btn-highlight" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
                 </div>
+                <div id="where-group" class="input-group">
+                    <input id="where-input" type="search" class="form-control" autocomplete="off"
+                        placeholder="<?php $this->msg('where') ?>">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                </div>
+                <input id="ext_territory" name="ext_territory" type="hidden" />
             </form>
 
             <div class="list-group">

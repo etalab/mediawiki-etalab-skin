@@ -1,5 +1,5 @@
-Mediawiki ETALAB
-================
+Mediawiki ETALAB Skin
+=====================
 
 MediaWiki skin for ETALAB
 
@@ -58,7 +58,7 @@ $ php userOptions.php skin --old "vector" --new "etalab"
 
 ## Hacking
 
-We use bower, grunt, uglify and less to build assets so yee need to have them installed:
+We use bower, grunt, uglify and less to build assets so you need to have them installed:
 
 ```console
 $ sudo npm install -g bower less uglifyjs grunt-cli

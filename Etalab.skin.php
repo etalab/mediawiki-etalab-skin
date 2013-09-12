@@ -32,7 +32,7 @@ class SkinEtalab extends SkinTemplate {
             $min = $this->getRequest()->getFuzzyBool( 'debug' ) ? '' : '.min';
 
             $out->addHeadItem('style',
-                '<link rel="stylesheet" media="screen" href="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/css/etalab{$min}.css\">"
+                '<link rel="stylesheet" media="screen" href="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/css/etalab-mediawiki{$min}.css\">"
             );
             $out->addHeadItem( 'modernizr',
               '<!--[if lt IE 9]><script src="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/js/modernizr.min.js\"></script><![endif]-->"

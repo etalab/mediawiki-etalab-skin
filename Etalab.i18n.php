@@ -21,6 +21,7 @@ $messages['en'] = array(
         'profile' => 'Profile',
         'privacy' => 'Privacy',
         'terms' => 'Terms',
+        'where' => 'Where ?',
 );
 
 /**
@@ -36,4 +37,5 @@ $messages['fr'] = array(
         'profile' => 'Profil',
         'privacy' => 'Vie privée',
         'terms' => 'Conditions légales',
+        'where' => 'Où ?',
 );

@@ -11,29 +11,43 @@ module.exports = function(grunt) {
                     filter: 'isFile'
                 }, {
                     expand: true,
+                    cwd: 'bower/etalab-assets/fonts',
+                    src: ['*'],
+                    dest: 'fonts/',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
                     cwd: 'bower/flags/flags/flags-iso/shiny/16',
                     src: ['*.png'],
                     dest: 'img/flags',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: 'bower/etalab-assets/img',
+                    src: ['*'],
+                    dest: 'img/',
                     filter: 'isFile'
                 }]
             }
         },
         less: {
+            options: {
+                paths: [
+                    'bower/etalab-assets/less',
+                    'bower/bootstrap/less'
+                ]
+            },
             dev: {
-                options: {
-                    paths: ['css']
-                },
                 files: {
-                    'css/etalab.css': ['less/etalab.less']
+                    'css/etalab-mediawiki.css': ['less/etalab-mediawiki.less']
                 }
             },
             prod: {
                 options: {
-                    paths: ['css'],
                     yuicompress: true
                 },
                 files: {
-                    'css/etalab.min.css': ['less/etalab.less']
+                    'css/etalab-mediawiki.min.css': ['less/etalab-mediawiki.less']
                 }
             }
         },
@@ -43,33 +57,33 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    'js/etalab.min.js': ['bower/jquery/jquery.js', 'bower/bootstrap/dist/js/bootstrap.js', 'js/etalab.js'],
-                    'js/etalab-legacy.min.js': ['bower/jquery-legacy/index.js', 'bower/bootstrap/dist/js/bootstrap.js', 'js/etalab.js'],
-                    'js/modernizr.min.js': ['bower/modernizr/modernizr.js', 'bower/respond/respond.src.js']
+                    'js/etalab-mediawiki.min.js': [
+                        'bower/jquery/jquery.js',
+                        'bower/bootstrap/dist/js/bootstrap.js',
+                        'bower/typeahead.js/dist/typeahead.js',
+                        'bower/jquery.cookie/jquery.cookie.js',
+                        'bower/etalab-assets/js/etalab-site.js'
+                    ],
+                    'js/etalab-mediawiki-legacy.min.js': [
+                        'bower/jquery-legacy/index.js',
+                        'bower/bootstrap/dist/js/bootstrap.js',
+                        'bower/typeahead.js/dist/typeahead.js',
+                        'bower/jquery.cookie/jquery.cookie.js',
+                        'bower/etalab-assets/js/etalab-site.js',],
+                    'js/modernizr.min.js': [
+                        'bower/modernizr/modernizr.js',
+                        'bower/respond/respond.src.js'
+                    ]
                 }
             }
-        },
-        jshint: {
-            // define the files to lint
-            files: ['gruntfile.js'],
-            // configure JSHint (documented at http://www.jshint.com/docs/)
-            options: {
-                // more options here if you want to override JSHint defaults
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true
-                }
-            }
-
         },
         watch: {
             javascript: {
-                files: ['js/etalab.js'],
+                files: ['js/etalab-mediawiki.js'],
                 tasks: ['uglify']
             },
             style: {
-                files: ['less/etalab.less'],
+                files: ['less/etalab-mediawiki.less'],
                 tasks: ['less']
             },
         }
