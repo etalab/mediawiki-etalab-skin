@@ -24,19 +24,19 @@ function wikiUrl($target) {
 class EtalabTemplate extends BaseTemplate {
 
     private function getTopics($lang='fr') {
-        global $wgEtalabDataUrl;
+        global $wgEtalabHomeUrl;
         return array(
-            array('Culture et communication', 'culture', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
+            array('Culture et communication', 'culture', "$wgEtalabHomeUrl/$lang/group/culture-et-communication"),
             array('Développement durable', 'wind', wikiUrl('Le Développement Durable')),
-            array('Éducation et recherche', 'education', "$wgEtalabDataUrl/$lang/group/education-et-recherche"),
-            array('État et collectivités', 'france', "$wgEtalabDataUrl/$lang/group/etat-et-collectivites"),
-            array('Europe', 'europe', "$wgEtalabDataUrl/$lang/group/culture-et-communication"),
-            array('Justice', 'justice', "$wgEtalabDataUrl/$lang/group/justice"),
-            array('Monde', 'world', "$wgEtalabDataUrl/$lang/group/monde"),
-            array('Santé et solidarité', 'hearth', "$wgEtalabDataUrl/$lang/group/sante-et-solidarite"),
-            array('Sécurité et défense', 'shield', "$wgEtalabDataUrl/$lang/group/securite-et-defense"),
-            array('Société', 'people', "$wgEtalabDataUrl/$lang/group/societe"),
-            array('Travail, économie, emploi', 'case', "$wgEtalabDataUrl/$lang/group/travail-economie-emploi"),
+            array('Éducation et recherche', 'education', "$wgEtalabHomeUrl/$lang/group/education-et-recherche"),
+            array('État et collectivités', 'france', "$wgEtalabHomeUrl/$lang/group/etat-et-collectivites"),
+            array('Europe', 'europe', "$wgEtalabHomeUrl/$lang/group/culture-et-communication"),
+            array('Justice', 'justice', "$wgEtalabHomeUrl/$lang/group/justice"),
+            array('Monde', 'world', "$wgEtalabHomeUrl/$lang/group/monde"),
+            array('Santé et solidarité', 'hearth', "$wgEtalabHomeUrl/$lang/group/sante-et-solidarite"),
+            array('Sécurité et défense', 'shield', "$wgEtalabHomeUrl/$lang/group/securite-et-defense"),
+            array('Société', 'people', "$wgEtalabHomeUrl/$lang/group/societe"),
+            array('Travail, économie, emploi', 'case', "$wgEtalabHomeUrl/$lang/group/travail-economie-emploi"),
         );
     }
 
@@ -138,7 +138,7 @@ class EtalabTemplate extends BaseTemplate {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl; ?>">Data.Gouv.fr</a>
+                <a class="navbar-brand" href="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl; ?>">Data.Gouv.fr</a>
             </header>
 
             <div class="collapse navbar-collapse">
@@ -266,9 +266,11 @@ class EtalabTemplate extends BaseTemplate {
         ?>
             <!-- <?php echo htmlspecialchars( $name ); ?> -->
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo htmlspecialchars( $name ); ?></h3>
+                <a href data-toggle="collapse" data-target="#panel-<?php echo $name;?>">
+                    <?php echo htmlspecialchars( $name ); ?>
+                </a>
             </div>
-            <div class="panel-body">
+            <div id="panel-<?php echo $name;?>" class="panel-body collapse in">
                 <ul class="list-unstyled">
                 <?php
                     foreach( $content as $key => $val ) {
@@ -288,9 +290,11 @@ class EtalabTemplate extends BaseTemplate {
 
             <!-- Toolbox -->
             <div class="panel-heading">
-                <h3 class="panel-title"><?php $this->msg('toolbox') ?></h3>
+                <a href data-toggle="collapse" data-target="#panel-toolbox">
+                    <?php $this->msg('toolbox') ?>
+                </a>
             </div>
-            <div class="panel-body">
+            <div id="panel-toolbox" class="panel-body collapse in">
                 <ul class="list-unstyled">
                 <?php
                         foreach ( $this->getToolbox() as $key => $tbitem ) { ?>
@@ -302,7 +306,7 @@ class EtalabTemplate extends BaseTemplate {
                 </ul>
             </div>
 
-            <form id="search-form" action="<?php global $wgEtalabDataUrl; echo $wgEtalabDataUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
+            <form id="search-form" action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
                 <div id="search-group" class="input-group input-group-lg">
                     <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
                         placeholder="<?php $this->msg('search') ?>">

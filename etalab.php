@@ -36,4 +36,6 @@ $wgResourceModules['skins.etalab'] = array(
 );
 
 # Default options to customize skin behavior
-$wgEtalabDataUrl = 'http://data.gouv.fr';
+$wgEtalabHomeUrl = 'http://data.gouv.fr';
+$wgEtalabWikiUrl = 'http://wiki.data.gouv.fr';
+$wgEtalabQuestionsUrl = 'http://questions.data.gouv.fr';

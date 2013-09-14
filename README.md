@@ -40,12 +40,35 @@ MediaWiki skin for ETALAB
 
 You can customize the skin behavior with the following options
 
-### ETALAB Data site url
+### ETALAB Home site url
 
 Customize the base URL used to feed the sidebar links and search
-by setting the ``$wgEtalabDataUrl`` in your ``LocalSettings.php``.
+by setting the ``$wgEtalabHomeUrl`` in your ``LocalSettings.php``.
 
 Default value: 'http://data.gouv.fr'
+
+### ETALAB Wiki site url
+
+Customize the base URL used to feed the sidebar links and search
+by setting the ``$wgEtalabWikiUrl`` in your ``LocalSettings.php``.
+
+Default value: 'http://wiki.data.gouv.fr'
+
+### ETALAB Questions site url
+
+Customize the base URL used to feed the sidebar links and search
+by setting the ``$wgEtalabQuestionsUrl`` in your ``LocalSettings.php``.
+
+Default value: 'http://questions.data.gouv.fr'
+
+### Favicon
+
+Customize the favicon by setting the ``$wgFavicon`` variable:
+
+```php
+// If etalab is your default skin
+$wgFavicon = "$wgStylePath/$wgDefaultSkin/img/favicon.png";
+```
 
 
 ### Settings the theme to existing users
