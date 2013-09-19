@@ -138,7 +138,7 @@ class EtalabTemplate extends BaseTemplate {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl; ?>">Data.Gouv.fr</a>
+                <a class="navbar-brand" href="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
             </header>
 
             <div class="collapse navbar-collapse">
