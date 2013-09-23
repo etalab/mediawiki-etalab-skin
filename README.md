@@ -52,7 +52,14 @@ Default value: 'http://data.gouv.fr'
 Customize the base URL used to feed the sidebar links and search
 by setting the ``$wgEtalabWikiUrl`` in your ``LocalSettings.php``.
 
-Default value: 'http://wiki.data.gouv.fr'
+Default value: 'http://wiki.data.gouv.fr/wiki'
+
+### ETALAB Wiki API url
+
+Customize the URL used by the search autocomplete
+by setting the ``$wgEtalabWikiAPIUrl`` in your ``LocalSettings.php``.
+
+Default value: 'http://wiki.data.gouv.fr/api.php'
 
 ### ETALAB Questions site url
 

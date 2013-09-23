@@ -22,7 +22,7 @@ class SkinEtalab extends SkinTemplate {
          * @param $out OutputPage object to initialize
          */
         public function initPage( OutputPage $out ) {
-            global $wgLocalStylePath, $wgEtalabHomeUrl, $wgEtalabWikiUrl, $wgEtalabQuestionsUrl;
+            global $wgLocalStylePath, $wgEtalabHomeUrl, $wgEtalabWikiUrl, $wgEtalabWikiAPIUrl, $wgEtalabQuestionsUrl;
 
             parent::initPage( $out );
 
@@ -44,6 +44,7 @@ class SkinEtalab extends SkinTemplate {
             // Reference to other site
             $out->addHeadItem('etalab-home-url', '<link rel="home" href="'.$wgEtalabHomeUrl.'" />');
             $out->addHeadItem('etalab-wiki-url', '<link rel="wiki" href="'.$wgEtalabWikiUrl.'" />');
+            $out->addHeadItem('etalab-wiki-api', '<link rel="wiki-api" href="'.$wgEtalabWikiAPIUrl.'" />');
             $out->addHeadItem('etalab-questions-url', '<link rel="questions" href="'.$wgEtalabQuestionsUrl.'" />');
         }
 
