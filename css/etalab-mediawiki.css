@@ -6019,17 +6019,20 @@ td.visible-print {
 .icon-shield:before {
   content: "\f10e";
 }
-.icon-smiley:before {
+.icon-shop:before {
   content: "\f10f";
 }
-.icon-target:before {
+.icon-smiley:before {
   content: "\f110";
 }
-.icon-wind:before {
+.icon-target:before {
   content: "\f111";
 }
-.icon-world:before {
+.icon-wind:before {
   content: "\f112";
+}
+.icon-world:before {
+  content: "\f113";
 }
 .icon_bug:before {
   content: "\f100";
@@ -6076,17 +6079,20 @@ td.visible-print {
 .icon_shield:before {
   content: "\f10e";
 }
-.icon_smiley:before {
+.icon_shop:before {
   content: "\f10f";
 }
-.icon_target:before {
+.icon_smiley:before {
   content: "\f110";
 }
-.icon_wind:before {
+.icon_target:before {
   content: "\f111";
 }
-.icon_world:before {
+.icon_wind:before {
   content: "\f112";
+}
+.icon_world:before {
+  content: "\f113";
 }
 .full-container {
   padding-left: 15px;
@@ -6202,6 +6208,9 @@ a.thumbnail-link:hover .thumbnail {
 .navbar-subnav {
   background-color: #446588;
   z-index: 800;
+}
+.navbar-subnav form {
+  width: 100%;
 }
 .navbar-subnav input[type="search"] {
   color: white;
