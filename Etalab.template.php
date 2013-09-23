@@ -252,6 +252,29 @@ class EtalabTemplate extends BaseTemplate {
                 </ul>
             </div>
         </nav>
+
+        <nav class="navbar navbar-static-top navbar-subnav">
+            <form class="navbar-form navbar-left form-inline" role="search"
+                action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
+                <div class="input-group col-sm-5 col-sm-offset-2 col-xs-12">
+                    <div class="input-group-btn">
+                        <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                    <input id="search-input" name="q" type="search" class="form-control"
+                                autocomplete="off" placeholder="<?php $this->msg('search') ?>">
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div id="where-group" class="input-group col-sm-3">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-globe"></span>
+                        </span>
+                        <input id="where-input" type="search" class="form-control"
+                                autocomplete="off" placeholder="<?php $this->msg('where') ?>">
+                        <input id="ext_territory" name="ext_territory" type="hidden" />
+                    </div>
+                </div>
+            </form>
+        </nav>
         <?php
     }
 
@@ -305,22 +328,6 @@ class EtalabTemplate extends BaseTemplate {
                         wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) ); ?>
                 </ul>
             </div>
-
-            <form id="search-form" action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
-                <div id="search-group" class="input-group input-group-lg">
-                    <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
-                        placeholder="<?php $this->msg('search') ?>">
-                    <span class="input-group-btn">
-                        <button class="btn btn-highlight" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                </div>
-                <div id="where-group" class="input-group">
-                    <input id="where-input" type="search" class="form-control" autocomplete="off"
-                        placeholder="<?php $this->msg('where') ?>">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
-                </div>
-                <input id="ext_territory" name="ext_territory" type="hidden" />
-            </form>
 
             <div class="list-group">
                 <?php foreach ($this->getTopics() as $topic) {

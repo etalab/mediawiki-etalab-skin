@@ -53,7 +53,14 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> v<%= pkg.version %> \n' + '* http://noirbizarre.github.com/bootstrap-pickers \n' + '* Copyright (c) <%= grunt.template.today("yyyy") %> Axel Haustant \n' + '* MIT License \n' + '*/'
+                banner: [
+                    '/*! <%= pkg.name %> v<%= grunt.template.today("yyyy-mm-dd HH:MM") %>',
+                    ' * http://www.etalab2.fr',
+                    ' * Copyright (c) <%= grunt.template.today("yyyy") %> Etalab',
+                    ' * GNU AFFERO GENERAL PUBLIC LICENSE',
+                    ' */',
+                    ''
+                ].join('\n')
             },
             build: {
                 files: {
