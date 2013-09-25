@@ -47,7 +47,7 @@ class SkinEtalab extends SkinTemplate {
             // $out->addModuleScripts( 'skins.etalab' );
 
             // Reference to other site
-            $out->addHeadItem('etalab-domain', '<link rel="domain" href="'.$wgEtalabDomain.'" />');
+            $out->addHeadItem('etalab-domain', '<meta name="domain" content="'.$wgEtalabDomain.'" />');
             $out->addHeadItem('etalab-home-url', '<link rel="home" href="'.$wgEtalabHomeUrl.'" />');
             $out->addHeadItem('etalab-wiki-url', '<link rel="wiki" href="'.$wgEtalabWikiUrl.'" />');
             $out->addHeadItem('etalab-wiki-api', '<link rel="wiki-api" href="'.$wgEtalabWikiAPIUrl.'" />');

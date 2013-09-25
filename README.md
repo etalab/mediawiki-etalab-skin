@@ -44,7 +44,7 @@ You can customize the skin behavior with the following options
 
 Customize the domain where all etalab site belongd by setting the ``$wgEtalabDomain`` in your ``LocalSettings.php``. Mainly used by cookies.
 
-Default value: 'http://data.gouv.fr'
+Default value: 'data.gouv.fr'
 
 ### ETALAB Home site url
 
