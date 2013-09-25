@@ -33,7 +33,7 @@ class EtalabTemplate extends BaseTemplate {
             array('Europe', 'europe', "$wgEtalabHomeUrl/$lang/group/culture-et-communication"),
             array('Justice', 'justice', "$wgEtalabHomeUrl/$lang/group/justice"),
             array('Monde', 'world', "$wgEtalabHomeUrl/$lang/group/monde"),
-            array('Santé et solidarité', 'hearth', "$wgEtalabHomeUrl/$lang/group/sante-et-solidarite"),
+            array('Santé et solidarité', 'heart', "$wgEtalabHomeUrl/$lang/group/sante-et-solidarite"),
             array('Sécurité et défense', 'shield', "$wgEtalabHomeUrl/$lang/group/securite-et-defense"),
             array('Société', 'people', "$wgEtalabHomeUrl/$lang/group/societe"),
             array('Travail, économie, emploi', 'case', "$wgEtalabHomeUrl/$lang/group/travail-economie-emploi"),
