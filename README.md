@@ -40,12 +40,18 @@ MediaWiki skin for ETALAB
 
 You can customize the skin behavior with the following options
 
+### ETALAB Domain
+
+Customize the domain where all etalab site belongd by setting the ``$wgEtalabDomain`` in your ``LocalSettings.php``. Mainly used by cookies.
+
+Default value: 'http://data.gouv.fr'
+
 ### ETALAB Home site url
 
 Customize the base URL used to feed the sidebar links and search
 by setting the ``$wgEtalabHomeUrl`` in your ``LocalSettings.php``.
 
-Default value: 'http://data.gouv.fr'
+Default value: 'http://www.data.gouv.fr'
 
 ### ETALAB Wiki site url
 
