@@ -255,7 +255,7 @@ class EtalabTemplate extends BaseTemplate {
 
         <nav class="navbar navbar-static-top navbar-subnav">
             <form class="navbar-form navbar-left form-inline" role="search"
-                action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset'; ?>">
+                action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
                 <div class="input-group col-sm-5 col-sm-offset-2 col-xs-12">
                     <div class="input-group-btn">
                         <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
