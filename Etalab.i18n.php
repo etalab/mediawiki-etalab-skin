@@ -22,6 +22,7 @@ $messages['en'] = array(
         'privacy' => 'Privacy',
         'terms' => 'Terms',
         'where' => 'Where ?',
+        'publish-dataset' => 'Publish a dataset !',
 );
 
 /**
@@ -38,4 +39,5 @@ $messages['fr'] = array(
         'privacy' => 'Vie privée',
         'terms' => 'Conditions légales',
         'where' => 'Où ?',
+        'publish-dataset' => 'Publiez une série de données !',
 );

@@ -129,16 +129,18 @@ class EtalabTemplate extends BaseTemplate {
     }
 
     private function render_top_nav() {
+        global $wgEtalabHomeUrl;
         ?>
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <header class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse, .subnav-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
+                <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
             </header>
 
             <div class="collapse navbar-collapse">
@@ -253,27 +255,37 @@ class EtalabTemplate extends BaseTemplate {
             </div>
         </nav>
 
-        <nav class="navbar navbar-static-top navbar-subnav">
-            <form class="navbar-form navbar-left form-inline" role="search"
-                action="<?php global $wgEtalabHomeUrl; echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                <div class="input-group col-sm-5 col-sm-offset-2 col-xs-12">
-                    <div class="input-group-btn">
-                        <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
+            <div class="navbar-left col-sm-4 col-md-3 col-xs-12 collapse subnav-collapse">
+                <a class="btn btn-primary navbar-btn btn-block"
+                        title="<?php $this->msg('publish-dataset') ?>"
+                        href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <?php $this->msg('publish-dataset') ?>
+                </a>
+            </div>
+            <div class="col-sm-8 col-md-9 col-xs-12 navbar-left">
+                <form class="navbar-form form-inline" role="search"
+                    action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
+                    <div class="input-group col-sm-8 col-xs-12">
+                        <div class="input-group-btn">
+                            <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                        <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
+                                placeholder="<?php $this->msg('search') ?>">
                     </div>
-                    <input id="search-input" name="q" type="search" class="form-control"
-                                autocomplete="off" placeholder="<?php $this->msg('search') ?>">
-                </div>
-                <div class="collapse navbar-collapse">
-                    <div id="where-group" class="input-group col-sm-3">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-globe"></span>
-                        </span>
-                        <input id="where-input" type="search" class="form-control"
-                                autocomplete="off" placeholder="<?php $this->msg('where') ?>">
-                        <input id="ext_territory" name="ext_territory" type="hidden" />
+                    <div class="collapse subnav-collapse col-sm-4 col-xs-12">
+                        <div id="where-group" class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </span>
+                            <input id="where-input" type="search" class="form-control" autocomplete="off"
+                                    placeholder="<?php $this->msg('where') ?>">
+                            <input id="ext_territory" name="ext_territory" type="hidden" />
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </nav>
         <?php
     }
