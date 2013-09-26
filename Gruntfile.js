@@ -69,6 +69,7 @@ module.exports = function(grunt) {
                         'bower/bootstrap/dist/js/bootstrap.js',
                         'bower/typeahead.js/dist/typeahead.js',
                         'bower/jquery.cookie/jquery.cookie.js',
+                        'bower/swig/index.js',
                         'bower/etalab-assets/js/etalab-site.js'
                     ],
                     'js/etalab-mediawiki-legacy.min.js': [
@@ -76,6 +77,7 @@ module.exports = function(grunt) {
                         'bower/bootstrap/dist/js/bootstrap.js',
                         'bower/typeahead.js/dist/typeahead.js',
                         'bower/jquery.cookie/jquery.cookie.js',
+                        'bower/swig/index.js',
                         'bower/etalab-assets/js/etalab-site.js',],
                     'js/modernizr.min.js': [
                         'bower/modernizr/modernizr.js',
