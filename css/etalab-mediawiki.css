@@ -5995,44 +5995,62 @@ td.visible-print {
 .icon-europe:before {
   content: "\f106";
 }
-.icon-france:before {
+.icon-facebook:before {
   content: "\f107";
 }
-.icon-heart:before {
+.icon-factory:before {
   content: "\f108";
 }
-.icon-justice:before {
+.icon-france:before {
   content: "\f109";
 }
-.icon-light-bulb:before {
+.icon-googleplus:before {
   content: "\f10a";
 }
-.icon-location:before {
+.icon-heart:before {
   content: "\f10b";
 }
-.icon-people:before {
+.icon-identica:before {
   content: "\f10c";
 }
-.icon-rss:before {
+.icon-justice:before {
   content: "\f10d";
 }
-.icon-shield:before {
+.icon-light-bulb:before {
   content: "\f10e";
 }
-.icon-shop:before {
+.icon-linkedin:before {
   content: "\f10f";
 }
-.icon-smiley:before {
+.icon-location:before {
   content: "\f110";
 }
-.icon-target:before {
+.icon-people:before {
   content: "\f111";
 }
-.icon-wind:before {
+.icon-rss:before {
   content: "\f112";
 }
-.icon-world:before {
+.icon-shield:before {
   content: "\f113";
+}
+.icon-shop:before {
+  content: "\f114";
+}
+.icon-smiley:before {
+  content: "\f115";
+}
+.icon-target:before {
+  content: "\f116";
+}
+.icon-twitter:before {
+  content: "\f117";
+}
+.icon-wind:before {
+  content: "\f118";
+}
+.icon-world:before {
+  content: "\f119";
 }
 .icon_bug:before {
   content: "\f100";
@@ -6055,44 +6073,62 @@ td.visible-print {
 .icon_europe:before {
   content: "\f106";
 }
-.icon_france:before {
+.icon_facebook:before {
   content: "\f107";
 }
-.icon_heart:before {
+.icon_factory:before {
   content: "\f108";
 }
-.icon_justice:before {
+.icon_france:before {
   content: "\f109";
 }
-.icon_light-bulb:before {
+.icon_googleplus:before {
   content: "\f10a";
 }
-.icon_location:before {
+.icon_heart:before {
   content: "\f10b";
 }
-.icon_people:before {
+.icon_identica:before {
   content: "\f10c";
 }
-.icon_rss:before {
+.icon_justice:before {
   content: "\f10d";
 }
-.icon_shield:before {
+.icon_light-bulb:before {
   content: "\f10e";
 }
-.icon_shop:before {
+.icon_linkedin:before {
   content: "\f10f";
 }
-.icon_smiley:before {
+.icon_location:before {
   content: "\f110";
 }
-.icon_target:before {
+.icon_people:before {
   content: "\f111";
 }
-.icon_wind:before {
+.icon_rss:before {
   content: "\f112";
 }
-.icon_world:before {
+.icon_shield:before {
   content: "\f113";
+}
+.icon_shop:before {
+  content: "\f114";
+}
+.icon_smiley:before {
+  content: "\f115";
+}
+.icon_target:before {
+  content: "\f116";
+}
+.icon_twitter:before {
+  content: "\f117";
+}
+.icon_wind:before {
+  content: "\f118";
+}
+.icon_world:before {
+  content: "\f119";
 }
 .full-container {
   padding-left: 15px;
