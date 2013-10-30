@@ -1,11 +1,22 @@
 /**
  * Common site styles and helpers.
  */
-@import "etalab.less";
+@import "etalab-dataset.less";
+
+.grey-link {
+    a {
+        font-weight: bold;
+        color: #565656;
+
+        &:hover {
+            color: #565656;
+        }
+    }
+}
 
 #toc, .toc {
-    .well();
-    // .well-lg();
+    // .well();
+    .card();
     td {
         padding: 10px
     }
@@ -21,10 +32,74 @@
     ul {
         margin: 0 20px;
     }
+
+    .grey-link();
 }
 
 .nav-tabs {
     > li > a {
-      line-height: 0.9;
+        line-height: 0.9;
+        color: white;
+        background-color: #aeaeae;
+
+        &:hover {
+            color: black;
+            background-color: #aeaeae;
+            border: 1px solid transparent;
+        }
+    }
+}
+
+.page-header {
+    color: @dark_text;
+    margin: 15px 0;
+    padding: 0;
+    border-bottom: 1px dashed #D6D6D6;
+
+    h1 {
+        font-family: @title-font;
+        font-size: 42px;
+        margin-bottom: 3px;
+        margin-top: 0px;
+    }
+
+    small {
+        color: @dark_text;
+    }
+}
+
+aside {
+    li {
+        margin-bottom: 3px;
+    }
+
+    .grey-link();
+}
+
+section.footer {
+    margin-top: 20px;
+}
+
+/**
+ * Edit page
+ */
+.mw-body {
+    form > * {
+        width: 100%;
+    }
+
+    h1, h2, h3 {
+        .mw-headline {
+            font-family: @title-font;
+        }
+        border-bottom: 1px dashed #D6D6D6;
+    }
+
+    h1 .btn-group {
+        margin-top: 10px;
+    }
+
+    h2 .btn-group {
+        margin-top: 7px;
     }
 }

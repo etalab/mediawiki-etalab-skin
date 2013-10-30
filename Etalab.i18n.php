@@ -23,6 +23,10 @@ $messages['en'] = array(
         'terms' => 'Terms',
         'where' => 'Where ?',
         'publish-dataset' => 'Publish a dataset !',
+        'faq' => 'How it works ?',
+        'publishers' => 'Publishers',
+        'open-license' => 'Open license',
+        'topics' => 'Topics',
 );
 
 /**
@@ -40,4 +44,8 @@ $messages['fr'] = array(
         'terms' => 'Conditions légales',
         'where' => 'Où ?',
         'publish-dataset' => 'Publiez une série de données !',
+        'faq' => 'Comment ça marche ?',
+        'publishers' => 'Producteurs',
+        'open-license' => 'License ouverte',
+        'topics' => 'Thématiques',
 );

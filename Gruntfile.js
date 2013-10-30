@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                     filter: 'isFile'
                 }, {
                     expand: true,
-                    cwd: 'bower/flags/flags/flags-iso/shiny/16',
+                    cwd: 'bower/etalab-assets/img/flags',
                     src: ['*.png'],
                     dest: 'img/flags',
                     filter: 'isFile'

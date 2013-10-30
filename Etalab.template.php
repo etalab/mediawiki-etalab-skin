@@ -16,6 +16,14 @@ function wikiUrl($target) {
     return $title->getLinkUrl();
 }
 
+/**
+ * Get a Home/Weckan URL
+ */
+function homeUrl($target, $lang='fr') {
+    global $wgEtalabHomeUrl;
+    return "$wgEtalabHomeUrl/$lang/$target";
+}
+
 
 /**
  * BaseTemplate class for ETALAB skin
@@ -26,17 +34,14 @@ class EtalabTemplate extends BaseTemplate {
     private function getTopics($lang='fr') {
         global $wgEtalabHomeUrl;
         return array(
-            array('Culture et communication', 'culture', "$wgEtalabHomeUrl/$lang/group/culture-et-communication"),
+            array('Culture et communication', 'culture', homeUrl("group/culture-et-communication", $lang)),
             array('Développement durable', 'wind', wikiUrl('Le Développement Durable')),
-            array('Éducation et recherche', 'education', "$wgEtalabHomeUrl/$lang/group/education-et-recherche"),
-            array('État et collectivités', 'france', "$wgEtalabHomeUrl/$lang/group/etat-et-collectivites"),
-            array('Europe', 'europe', "$wgEtalabHomeUrl/$lang/group/culture-et-communication"),
-            array('Justice', 'justice', "$wgEtalabHomeUrl/$lang/group/justice"),
-            array('Monde', 'world', "$wgEtalabHomeUrl/$lang/group/monde"),
-            array('Santé et solidarité', 'heart', "$wgEtalabHomeUrl/$lang/group/sante-et-solidarite"),
-            array('Sécurité et défense', 'shield', "$wgEtalabHomeUrl/$lang/group/securite-et-defense"),
-            array('Société', 'people', "$wgEtalabHomeUrl/$lang/group/societe"),
-            array('Travail, économie, emploi', 'case', "$wgEtalabHomeUrl/$lang/group/travail-economie-emploi"),
+            array('Éducation et recherche', 'education', homeUrl("group/education-et-recherche", $lang)),
+            array('Justice', 'justice', homeUrl("group/justice", $lang)),
+            array('Santé et solidarité', 'heart', homeUrl("group/sante-et-solidarite", $lang)),
+            array('Sécurité et défense', 'shield', homeUrl("group/securite-et-defense", $lang)),
+            array('Société', 'people', homeUrl("group/societe", $lang)),
+            array('Travail, économie, emploi', 'case', homeUrl("group/travail-economie-emploi", $lang)),
         );
     }
 
@@ -49,22 +54,20 @@ class EtalabTemplate extends BaseTemplate {
 
         $this->html( 'headelement' );
         $this->render_top_nav();
+        $this->render_sub_nav();
         ?>
 
-        <div class="full-container">
-            <div class="row">
-                <div class="col-sm-3 col-md-3">
-                <?php $this->render_sidebar(); ?>
+        <div class="container">
+            <?php if($this->data['sitenotice']) { ?>
+                <div id="siteNotice" class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php $this->html('sitenotice') ?>
                 </div>
+            <?php } ?>
 
-                <div class="col-sm-9 col-md-9">
-                    <?php if($this->data['sitenotice']) { ?>
-                        <div id="siteNotice" class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <?php $this->html('sitenotice') ?>
-                        </div>
-                    <?php } ?>
 
+            <div class="row">
+                <div class="col-md-9 col-sm-9 smaller">
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="nav nav-tabs">
@@ -97,21 +100,28 @@ class EtalabTemplate extends BaseTemplate {
                             <?php $this->html( 'bodytext' ) ?>
                         </div>
                     </div>
-                        <!-- /bodyContent -->
+                    <!-- /bodyContent -->
                 </div>
+
+                <aside class="col-md-3 col-sm-3">
+                    <?php $this->render_aside(); ?>
+                </aside>
             </div>
 
-            <hr/>
-            <footer>
-                <p class="pull-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
-                <p>
-                    &copy; 2013 ETALAB, Inc. &middot;
-                    <a href="#"><?php $this->msg( 'privacy' ); ?></a> &middot;
-                    <a href="#"><?php $this->msg( 'terms' ); ?></a>
-                </p>
-            </footer>
-
         </div>
+
+        <section class="footer">
+            <div class="container">
+                <footer>
+                    <p class="pull-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
+                    <p>
+                        &copy; 2013 ETALAB, Inc. &middot;
+                        <a href="#"><?php $this->msg( 'privacy' ); ?></a> &middot;
+                        <a href="#"><?php $this->msg( 'terms' ); ?></a>
+                    </p>
+                </footer>
+            </div>
+        </section>
 
 
         <!--[if lt IE 9]>
@@ -131,167 +141,216 @@ class EtalabTemplate extends BaseTemplate {
     private function render_top_nav() {
         global $wgEtalabHomeUrl;
         ?>
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
-            <header class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-collapse, .subnav-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
-            </header>
+        <div class="container">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <header class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse, .subnav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
+                </header>
 
-            <div class="collapse navbar-collapse">
-                <p class="navbar-text"><?php $this->msg( 'etalab-site-desc' ); ?></p>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <button class="btn btn-dark navbar-btn dropdown-toggle" data-toggle="dropdown">
-                            <?php if ($this->data['loggedin']) {
-                                echo gravatar($this->data['usermail'], 20) . ' ' . $this->data['username'];
-                            } else {
-                                ?><?php $this->msg( 'sign-in-register' ); ?><?php
-                            }
-                            ?>
-                            <b class="caret"></b>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <?php if ($this->data['loggedin']) { ?>
-
-                            <li>
-                                <a href="<?php echo $this->data['personal_urls']['userpage']['href'] ?>" title="Profil">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    <?php $this->msg( 'profile' ); ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $this->data['personal_urls']['preferences']['href'] ?>"
-                                    title="<?php echo $this->data['personal_urls']['preferences']['text'] ?>">
-                                    <span class="glyphicon glyphicon-wrench"></span>
-                                    <?php echo $this->data['personal_urls']['preferences']['text'] ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $this->data['personal_urls']['mytalk']['href'] ?>"
-                                    title="<?php echo $this->data['personal_urls']['mytalk']['text'] ?>">
-                                    <span class="glyphicon glyphicon-comment"></span>
-                                    <?php echo $this->data['personal_urls']['mytalk']['text'] ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $this->data['personal_urls']['watchlist']['href'] ?>" title="Liste de suivi">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                    <?php echo $this->data['personal_urls']['watchlist']['text'] ?>
-                                </a>
-                            </li>
-                            <li role="presentation" class="divider"></li>
-                            <li>
-                                <a href="<?php echo $this->data['personal_urls']['logout']['href'] ?>"
-                                    title="<?php echo $this->data['personal_urls']['logout']['text'] ?>">
-                                    <span class="glyphicon glyphicon-log-out"></span>
-                                    <?php echo $this->data['personal_urls']['logout']['text'] ?>
-                                </a>
-                            </li>
-
-                            <?php } else { ?>
-
-                                <?php if ( $this->data['personal_urls']['login'] ) { ?>
-                                <!-- login -->
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['login']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['login']['text'] ?>">
-                                        <span class="glyphicon glyphicon-user"></span>
-                                        <?php echo $this->data['personal_urls']['login']['text'] ?>
-                                    </a>
-                                </li>
-                                <?php } ?>
-                                <?php if ( $this->data['personal_urls']['anonlogin'] ) { ?>
-                                <!-- login -->
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['anonlogin']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['anonlogin']['text'] ?>">
-                                        <span class="glyphicon glyphicon-user"></span>
-                                        <?php echo $this->data['personal_urls']['anonlogin']['text'] ?>
-                                    </a>
-                                </li>
-                                <?php } ?>
-                                <!-- register -->
-                                <?php if ( $this->data['personal_urls']['createaccount'] ) { ?>
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['createaccount']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['createaccount']['text'] ?>">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                        <?php echo $this->data['personal_urls']['createaccount']['text'] ?>
-                                    </a>
-                                </li>
-                                <?php } ?>
-
-                            <?php } ?>
-
-
-                        </ul>
+                <ul class="nav navbar-nav links">
+                    <li>
+                        <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
                     </li>
-                    <li class="dropdown">
-                        <button class="btn btn-dark navbar-btn dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtoupper($this->data['userlang']).'.png') ) ?>" />
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">
-                                    <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/FR.png') ) ?>" />
-                                    Français
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/US.png') ) ?>" />
-                                    English
-                                </a>
-                            </li>
-                        </ul>
+                    <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
+                    <li>
+                        <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
+                            <?php $this->msg( 'open-license' ); ?>
+                        </a>
                     </li>
+                    <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
                 </ul>
-            </div>
-        </nav>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown user">
+                            <button class="btn-link dropdown-toggle" data-toggle="dropdown">
+                                <?php if ($this->data['loggedin']) {
+                                    echo gravatar($this->data['usermail'], 20) . ' ' . $this->data['username'];
+                                } else {
+                                    ?><?php $this->msg( 'sign-in-register' ); ?><?php
+                                }
+                                ?>
+                                <b class="caret"></b>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <?php if ($this->data['loggedin']) { ?>
+
+                                <li>
+                                    <a href="<?php echo $this->data['personal_urls']['userpage']['href'] ?>" title="Profil">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        <?php $this->msg( 'profile' ); ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->data['personal_urls']['preferences']['href'] ?>"
+                                        title="<?php echo $this->data['personal_urls']['preferences']['text'] ?>">
+                                        <span class="glyphicon glyphicon-wrench"></span>
+                                        <?php echo $this->data['personal_urls']['preferences']['text'] ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->data['personal_urls']['mytalk']['href'] ?>"
+                                        title="<?php echo $this->data['personal_urls']['mytalk']['text'] ?>">
+                                        <span class="glyphicon glyphicon-comment"></span>
+                                        <?php echo $this->data['personal_urls']['mytalk']['text'] ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->data['personal_urls']['watchlist']['href'] ?>" title="Liste de suivi">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                        <?php echo $this->data['personal_urls']['watchlist']['text'] ?>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li>
+                                    <a href="<?php echo $this->data['personal_urls']['logout']['href'] ?>"
+                                        title="<?php echo $this->data['personal_urls']['logout']['text'] ?>">
+                                        <span class="glyphicon glyphicon-log-out"></span>
+                                        <?php echo $this->data['personal_urls']['logout']['text'] ?>
+                                    </a>
+                                </li>
+
+                                <?php } else { ?>
+
+                                    <?php if ( $this->data['personal_urls']['login'] ) { ?>
+                                    <!-- login -->
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['login']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['login']['text'] ?>">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <?php echo $this->data['personal_urls']['login']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <?php if ( $this->data['personal_urls']['anonlogin'] ) { ?>
+                                    <!-- login -->
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['anonlogin']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['anonlogin']['text'] ?>">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <?php echo $this->data['personal_urls']['anonlogin']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <!-- register -->
+                                    <?php if ( $this->data['personal_urls']['createaccount'] ) { ?>
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['createaccount']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['createaccount']['text'] ?>">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <?php echo $this->data['personal_urls']['createaccount']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+
+                                <?php } ?>
+
+
+                            </ul>
+                        </li>
+                        <li class="dropdown language">
+                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtolower($this->data['userlang']).'.png') ) ?>" />
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/fr.png') ) ?>" />
+                                        Français
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/en.png') ) ?>" />
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <?php
+    }
+
+    private function render_sub_nav() {
+        global $wgEtalabHomeUrl;
+        ?>
 
         <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
-            <div class="navbar-left col-sm-4 col-md-3 col-xs-12 collapse subnav-collapse">
-                <a class="btn btn-primary navbar-btn btn-block"
-                        title="<?php $this->msg('publish-dataset') ?>"
-                        href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                    <?php $this->msg('publish-dataset') ?>
-                </a>
-            </div>
-            <div class="col-sm-8 col-md-9 col-xs-12 navbar-left">
-                <form class="navbar-form form-inline" role="search"
-                    action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                    <div class="input-group col-sm-8 col-xs-12">
-                        <div class="input-group-btn">
-                            <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            <div class="container">
+                <div class="cover-marianne"></div>
+
+                <div class="search_bar">
+                    <form class="navbar-form form" role="search"
+                        action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
+                        <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                            <div class="input-group-btn">
+                                <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                            <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
+                                    placeholder="<?php $this->msg('search') ?>">
                         </div>
-                        <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
-                                placeholder="<?php $this->msg('search') ?>">
-                    </div>
-                    <div class="collapse subnav-collapse col-sm-4 col-xs-12">
-                        <div id="where-group" class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-globe"></span>
-                            </span>
-                            <input id="where-input" type="search" class="form-control" autocomplete="off"
-                                    placeholder="<?php $this->msg('where') ?>">
-                            <input id="ext_territory" name="ext_territory" type="hidden" />
+                        <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                            <div class="collapse subnav-collapse">
+                                <div id="where-group" class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-globe"></span>
+                                    </span>
+                                    <input id="where-input" type="search" class="form-control" autocomplete="off"
+                                            placeholder="<?php $this->msg('where') ?>">
+                                    <input id="ext_territory" name="ext_territory" type="hidden" />
+                                </div>
+                            </div>
                         </div>
+                    </form>
+
+                    <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                        <button class="dropdown-toggle btn btn-block btn-light" data-toggle="dropdown">
+                            <?php $this->msg('topics') ?>
+                            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
+                            <?php foreach ($this->getTopics() as $topic) {
+                                $name = $topic[0];
+                                $icon = $topic[1];
+                                $url = $topic[2];
+                            ?>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $name; ?>">
+                                    <span class="icon icon-<?php echo $icon; ?>"></span>
+                                    <?php echo $name; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
                     </div>
-                </form>
+
+                </div>
+
+                <div class="pull-right">
+                    <a class="btn btn-primary btn-dark"
+                            title="<?php $this->msg('publish-dataset') ?>"
+                            href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <?php $this->msg('publish-dataset') ?>
+                    </a>
+                </div>
+
             </div>
         </nav>
         <?php
     }
 
-    private function render_sidebar() { ?>
-        <nav id="sidebar" class="panel">
+    private function render_aside() { ?>
         <?php foreach ( $this->data['sidebar'] as $name => $content ) {
             if ( !$content ) {
                 continue;
@@ -300,17 +359,13 @@ class EtalabTemplate extends BaseTemplate {
             $name = htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $name );
         ?>
             <!-- <?php echo htmlspecialchars( $name ); ?> -->
-            <div class="panel-heading">
-                <a href data-toggle="collapse" data-target="#panel-<?php echo $name;?>">
-                    <?php echo htmlspecialchars( $name ); ?>
-                </a>
-            </div>
-            <div id="panel-<?php echo $name;?>" class="panel-body collapse in">
+            <div class="card">
+                <h3><?php echo htmlspecialchars( $name ); ?></h3>
+            <!-- <div id="panel-<?php echo $name;?>" class="panel-body collapse in"> -->
                 <ul class="list-unstyled">
                 <?php
                     foreach( $content as $key => $val ) {
                         $navClasses = '';
-
                         if (array_key_exists('view', $this->data['content_navigation']['views']) && $this->data['content_navigation']['views']['view']['href'] == $val['href']) {
                             $navClasses = 'active';
                         }
@@ -320,40 +375,23 @@ class EtalabTemplate extends BaseTemplate {
                 <?php
                     }
             }?>
-                </ul>
-            </div>
+            </ul>
+        </div>
 
-            <!-- Toolbox -->
-            <div class="panel-heading">
-                <a href data-toggle="collapse" data-target="#panel-toolbox">
-                    <?php $this->msg('toolbox') ?>
-                </a>
-            </div>
-            <div id="panel-toolbox" class="panel-body collapse in">
-                <ul class="list-unstyled">
-                <?php
-                        foreach ( $this->getToolbox() as $key => $tbitem ) { ?>
-                                <?php echo $this->makeListItem( $key, $tbitem ); ?>
+        <!-- Toolbox -->
+        <div class="card">
+            <h3><?php $this->msg('toolbox') ?></h3>
+        <!-- <div id="panel-toolbox" class="panel-body collapse in"> -->
+            <ul class="list-unstyled">
+            <?php
+                    foreach ( $this->getToolbox() as $key => $tbitem ) { ?>
+                            <?php echo $this->makeListItem( $key, $tbitem ); ?>
 
-                <?php
-                        }
-                        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) ); ?>
-                </ul>
-            </div>
-
-            <div class="list-group">
-                <?php foreach ($this->getTopics() as $topic) {
-                    $name = $topic[0];
-                    $icon = $topic[1];
-                    $url = $topic[2];
-                ?>
-                    <a class="list-group-item" href="<?php echo $url; ?>" title="<?php echo $name; ?>">
-                        <span class="icon icon-<?php echo $icon; ?>"></span>
-                        <?php echo $name; ?>
-                    </a>
-                <?php } ?>
-            </div>
-        </nav>
+            <?php
+                    }
+                    wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) ); ?>
+            </ul>
+        </div>
         <?php
     }
 

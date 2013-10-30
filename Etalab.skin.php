@@ -69,7 +69,7 @@ class SkinEtalab extends SkinTemplate {
             $lang = wfGetLangObj( $lang );
 
             $attribs = array(
-                'class' => 'btn btn-xs btn-default pull-right',
+                'class' => 'btn btn-grey pull-right',
             );
             if ( !is_null( $tooltip ) ) {
                 # Bug 25462: undo double-escaping.
@@ -100,7 +100,7 @@ class SkinEtalab extends SkinTemplate {
                 # DoEditSectionLink: it can't change the brackets or the span.)
                 // $result = wfMessage( 'editsection-brackets' )->rawParams( $result )
                 //     ->inLanguage( $lang )->escaped();
-                return "<div class=\"btn-group editsection\">$result</div>";
+                return "<div class=\"btn-group btn-group-xs editsection\">$result</div>";
             }
 
             # Add the brackets and the span, and *then* run the nice new hook, with
@@ -108,7 +108,7 @@ class SkinEtalab extends SkinTemplate {
             // $result = wfMessage( 'editsection-brackets' )->rawParams( $link )
             //     ->inLanguage( $lang )->escaped();
             // $result = "<span class=\"editsection\">$result</span>";
-            $result = "<div class=\"btn-group editsection\">$link</div>";
+            $result = "<div class=\"btn-group btn-group-xs editsection\">$link</div>";
 
 
             wfRunHooks( 'DoEditSectionLink', array( $this, $nt, $section, $tooltip, &$result, $lang ) );
