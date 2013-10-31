@@ -314,7 +314,7 @@ class EtalabTemplate extends BaseTemplate {
                     </form>
 
                     <div class="input-group col-sm-3 col-md-3 col-xs-12">
-                        <button class="dropdown-toggle btn btn-block btn-light" data-toggle="dropdown">
+                        <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
                             <?php $this->msg('topics') ?>
                             <span class="glyphicon glyphicon-chevron-down pull-right"></span>
                         </button>
