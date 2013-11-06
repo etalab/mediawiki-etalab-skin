@@ -292,14 +292,14 @@ class EtalabTemplate extends BaseTemplate {
                 <div class="search_bar">
                     <form class="navbar-form form" role="search"
                         action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                        <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                        <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
                             <div class="input-group-btn">
                                 <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
                             <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
                                     placeholder="<?php $this->msg('search') ?>">
                         </div>
-                        <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                        <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
                             <div class="collapse subnav-collapse">
                                 <div id="where-group" class="input-group">
                                     <span class="input-group-addon">
@@ -311,9 +311,11 @@ class EtalabTemplate extends BaseTemplate {
                                 </div>
                             </div>
                         </div>
+
+                        <span></span>
                     </form>
 
-                    <div class="input-group col-sm-3 col-md-3 col-xs-12">
+                    <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
                         <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
                             <?php $this->msg('topics') ?>
                             <span class="glyphicon glyphicon-chevron-down pull-right"></span>
@@ -326,7 +328,6 @@ class EtalabTemplate extends BaseTemplate {
                             ?>
                             <li role="presentation">
                                 <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $name; ?>">
-                                    <span class="icon icon-<?php echo $icon; ?>"></span>
                                     <?php echo $name; ?>
                                 </a>
                             </li>
@@ -334,17 +335,16 @@ class EtalabTemplate extends BaseTemplate {
                         </ul>
                     </div>
 
-                </div>
+                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
+                        <a class="btn btn-primary btn-dark btn-block"
+                                title="<?php $this->msg('publish-dataset') ?>"
+                                href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <?php $this->msg('publish-dataset') ?>
+                        </a>
+                    </div>
 
-                <div class="pull-right">
-                    <a class="btn btn-primary btn-dark"
-                            title="<?php $this->msg('publish-dataset') ?>"
-                            href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <?php $this->msg('publish-dataset') ?>
-                    </a>
                 </div>
-
             </div>
         </nav>
         <?php
