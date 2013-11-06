@@ -27,6 +27,12 @@ module.exports = function(grunt) {
                     src: ['*'],
                     dest: 'img/',
                     filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: 'bower/etalab-assets/data',
+                    src: ['main_topics.json'],
+                    dest: '.',
+                    filter: 'isFile'
                 }]
             }
         },

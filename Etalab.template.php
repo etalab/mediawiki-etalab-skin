@@ -31,18 +31,31 @@ function homeUrl($target, $lang='fr') {
  */
 class EtalabTemplate extends BaseTemplate {
 
+    private $topics = null;
+
     private function getTopics($lang='fr') {
         global $wgEtalabHomeUrl;
-        return array(
-            array('Culture et communication', 'culture', homeUrl("group/culture-et-communication", $lang)),
-            array('Développement durable', 'wind', wikiUrl('Le Développement Durable')),
-            array('Éducation et recherche', 'education', homeUrl("group/education-et-recherche", $lang)),
-            array('Justice', 'justice', homeUrl("group/justice", $lang)),
-            array('Santé et solidarité', 'heart', homeUrl("group/sante-et-solidarite", $lang)),
-            array('Sécurité et défense', 'shield', homeUrl("group/securite-et-defense", $lang)),
-            array('Société', 'people', homeUrl("group/societe", $lang)),
-            array('Travail, économie, emploi', 'case', homeUrl("group/travail-economie-emploi", $lang)),
-        );
+
+        if (!$this->topics) {
+            $this->topics = array();
+            $json = file_get_contents(dirname(__FILE__).'/main_topics.json');
+            $topics = json_decode($json, true);
+            foreach ($topics as $topic) {
+                $url = str_replace('{group}', "$wgEtalabHomeUrl/{lang}/group",  $topic['url']);
+                $this->topics[] = [
+                    'title' => $topic['title'],
+                    'url' => $url,
+                ];
+            }
+        }
+
+        $func = function($topic) use ($lang) {
+            return [
+                'title' => $topic['title'],
+                'url' => str_replace('{lang}', $lang, $topic['url']),
+            ];
+        };
+        return array_map($func, $this->topics);
     }
 
     /**
@@ -322,13 +335,12 @@ class EtalabTemplate extends BaseTemplate {
                         </button>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
                             <?php foreach ($this->getTopics() as $topic) {
-                                $name = $topic[0];
-                                $icon = $topic[1];
-                                $url = $topic[2];
+                                $title = $topic['title'];
+                                $url = $topic['url'];
                             ?>
                             <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $name; ?>">
-                                    <?php echo $name; ?>
+                                <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+                                    <?php echo $title; ?>
                                 </a>
                             </li>
                             <?php } ?>
