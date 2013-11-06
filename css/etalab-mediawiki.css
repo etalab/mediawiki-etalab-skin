@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
 /**
  * Common site styles and helpers.
  */
@@ -2048,8 +2049,8 @@ fieldset[disabled] .btn-warning.active {
 }
 .btn-danger {
   color: #ffffff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #ec364b;
+  border-color: #ea1f36;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -2057,8 +2058,8 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #ffffff;
-  background-color: #d2322d;
-  border-color: #ac2925;
+  background-color: #e4162d;
+  border-color: #ba1225;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -2080,13 +2081,13 @@ fieldset[disabled] .btn-danger:active,
 .btn-danger.disabled.active,
 .btn-danger[disabled].active,
 fieldset[disabled] .btn-danger.active {
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #ec364b;
+  border-color: #ea1f36;
 }
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #81c85b;
+  border-color: #72c248;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -2094,8 +2095,8 @@ fieldset[disabled] .btn-danger.active {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #47a447;
-  border-color: #398439;
+  background-color: #6abb3f;
+  border-color: #579933;
 }
 .btn-success:active,
 .btn-success.active,
@@ -2117,8 +2118,8 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #81c85b;
+  border-color: #72c248;
 }
 .btn-info {
   color: #ffffff;
@@ -6233,6 +6234,126 @@ td.visible-print {
 .icon_world:before {
   content: "\f119";
 }
+.card {
+  background-color: white;
+  border: 1px solid #c3c3c3;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+ul.card-list {
+  padding-left: 0;
+  list-style: none;
+}
+ul.card-list .card {
+  position: relative;
+  margin-bottom: 18px;
+  background: white;
+  border: 1px solid #dcdcdc;
+  padding: 13px;
+  overflow: hidden;
+  zoom: 1;
+  height: 170px;
+}
+ul.card-list .card .card-logo {
+  float: left !important;
+  display: table-cell;
+  text-align: center;
+  line-height: 77px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #dcdcdc;
+  background-color: white;
+}
+ul.card-list .card .card-logo img {
+  max-width: 70px;
+  max-height: 70px;
+}
+ul.card-list .card .card-body {
+  padding-left: 93px;
+  color: #4f4f4f;
+  font-size: 13px;
+  line-height: 1.3em;
+}
+ul.card-list .card .card-body ul.card-footer {
+  padding-left: 0;
+  list-style: none;
+  z-index: 900;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #ececec;
+  height: 24px;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #6a6a6a;
+}
+ul.card-list .card .card-body ul.card-footer > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+ul.card-list .card .card-body ul.card-footer > li:first-child {
+  padding-left: 0;
+}
+ul.card-list .card .card-body ul.card-footer .btn {
+  background: none !important;
+  color: #bababa;
+}
+ul.card-list .card .card-text-mask {
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 69%, #ffffff 99%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(69%, #ffffff), color-stop(99%, #ffffff));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 69%, #ffffff 99%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 69%, #ffffff 99%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 69%, #ffffff 99%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 69%, #ffffff 99%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+  /* IE6-9 */
+
+}
+ul.card-list .card h4 {
+  margin: 0 0 8px;
+  line-height: 13px;
+}
+ul.card-list .card h4 a {
+  font-size: 14px;
+  color: #494949;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+ul.card-list .card.card-slim .glyphicon {
+  font-size: 2em;
+  top: -2px;
+  margin-right: 7px;
+}
+ul.card-list .card.card-slim h4 {
+  vertical-align: top;
+  margin: 4px 0 0 5px;
+}
+ul.card-list .card.card-slim .card-body {
+  padding-left: 0;
+  display: inline;
+}
 .twitter-typeahead {
   width: 100%;
 }
@@ -6343,15 +6464,27 @@ body {
   width: 200px;
   height: 80px;
   top: 0;
-  left: -138px;
+  left: -78px;
   position: absolute;
   z-index: -10;
   background: url('../img/marianne_cover.png') no-repeat;
 }
+.cover-communaute {
+  width: 140px;
+  height: 80px;
+  top: 0;
+  left: -38px;
+  position: absolute;
+  background: url('../img/communaute_cover.png') no-repeat 0px 5px;
+  opacity: 0.5;
+}
+.state {
+  background: #fc3f3f !important;
+}
 .sidebackground1,
 .sidebackground2,
 .sidebackground3 {
-  background-color: rgba(19, 86, 122, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   position: absolute;
   left: -1000px;
   z-index: -10;
@@ -6403,13 +6536,6 @@ body {
 .no-decoration:hover {
   text-decoration: none;
 }
-.card {
-  background-color: white;
-  border: 1px solid #c3c3c3;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
 .modal .modal-header,
 .modal .modal-footer {
   background-color: #ffffff;
@@ -6460,6 +6586,9 @@ img.certified {
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+}
+.btn-default {
+  color: #474747;
 }
 .btn-big {
   font-size: 13px;
@@ -6618,7 +6747,7 @@ a.thumbnail-link:hover .thumbnail {
   color: #373c42;
   background-image: url('../img/logo_etat.png');
   background-repeat: no-repeat;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .navbar-default .navbar-brand:hover {
   color: #49a5d6;
@@ -6632,7 +6761,7 @@ a.thumbnail-link:hover .thumbnail {
   font-style: italic;
   color: #5f5f5f !important;
   font-size: 16px;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   padding-top: 4px;
 }
 .navbar-subnav {
@@ -6743,7 +6872,7 @@ a.thumbnail-link:hover .thumbnail {
 }
 .nav-pills > li > a {
   margin-top: 40px;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
   color: #dcdcdc;
   font-weight: bold;
@@ -6769,7 +6898,7 @@ a.thumbnail-link:hover .thumbnail {
     border-radius: 0px;
     font-size: 14px;
     font-weight: bold;
-    background-color: #f1b500;
+    background-color: #f5b800;
   }
 }
 /**
@@ -6861,7 +6990,7 @@ a.thumbnail-link:hover .thumbnail {
   color: white;
   font-style: italic;
   font-size: 36px;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.2em;
 }
 .search_sidebar {
@@ -6925,6 +7054,56 @@ a.thumbnail-link:hover .thumbnail {
   padding-left: 0px;
   padding-right: 15px;
 }
+.search_bar .col-xs-1:last-child,
+.search_bar .col-xs-2:last-child,
+.search_bar .col-xs-3:last-child,
+.search_bar .col-xs-4:last-child,
+.search_bar .col-xs-5:last-child,
+.search_bar .col-xs-6:last-child,
+.search_bar .col-xs-7:last-child,
+.search_bar .col-xs-8:last-child,
+.search_bar .col-xs-9:last-child,
+.search_bar .col-xs-10:last-child,
+.search_bar .col-xs-11:last-child,
+.search_bar .col-xs-12:last-child,
+.search_bar .col-sm-1:last-child,
+.search_bar .col-sm-2:last-child,
+.search_bar .col-sm-3:last-child,
+.search_bar .col-sm-4:last-child,
+.search_bar .col-sm-5:last-child,
+.search_bar .col-sm-6:last-child,
+.search_bar .col-sm-7:last-child,
+.search_bar .col-sm-8:last-child,
+.search_bar .col-sm-9:last-child,
+.search_bar .col-sm-10:last-child,
+.search_bar .col-sm-11:last-child,
+.search_bar .col-sm-12:last-child,
+.search_bar .col-md-1:last-child,
+.search_bar .col-md-2:last-child,
+.search_bar .col-md-3:last-child,
+.search_bar .col-md-4:last-child,
+.search_bar .col-md-5:last-child,
+.search_bar .col-md-6:last-child,
+.search_bar .col-md-7:last-child,
+.search_bar .col-md-8:last-child,
+.search_bar .col-md-9:last-child,
+.search_bar .col-md-10:last-child,
+.search_bar .col-md-11:last-child,
+.search_bar .col-md-12:last-child,
+.search_bar .col-lg-1:last-child,
+.search_bar .col-lg-2:last-child,
+.search_bar .col-lg-3:last-child,
+.search_bar .col-lg-4:last-child,
+.search_bar .col-lg-5:last-child,
+.search_bar .col-lg-6:last-child,
+.search_bar .col-lg-7:last-child,
+.search_bar .col-lg-8:last-child,
+.search_bar .col-lg-9:last-child,
+.search_bar .col-lg-10:last-child,
+.search_bar .col-lg-11:last-child,
+.search_bar .col-lg-12:last-child {
+  padding-right: 0px;
+}
 .footer {
   padding-top: 10px;
   background-color: #283843;
@@ -6938,7 +7117,7 @@ a.thumbnail-link:hover .thumbnail {
   margin-top: 50px;
 }
 .dataset-container h3 {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #373c42;
   font-size: 1.1em;
   font-weight: bold;
@@ -6953,7 +7132,7 @@ a.thumbnail-link:hover .thumbnail {
   margin-bottom: 0px;
 }
 .dataset-container .page-header h1 {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-bottom: 3px;
   margin-top: 0px;
 }
@@ -7029,7 +7208,7 @@ a.thumbnail-link:hover .thumbnail {
   line-height: 28px;
 }
 .card .col-md-1 {
-  margin-left: 14px;
+  margin-left: 20px;
 }
 .card #infos-list li {
   margin-bottom: 3px;
@@ -7046,8 +7225,11 @@ a.thumbnail-link:hover .thumbnail {
 }
 .card .big_number {
   color: #a7a7a7;
-  font-size: 36px;
-  margin: 0 0 10px;
+  font-size: 34px;
+  margin: 0 0 0px;
+  font-weight: bold;
+  margin-top: -5px;
+  display: block;
 }
 .related-panel .thumbnail img {
   border: 1px solid #dcdcdc;
@@ -7111,7 +7293,7 @@ aside .groups {
 aside .thumbnail img.certified {
   position: absolute;
   top: -15px;
-  right: 0px;
+  right: -5px;
   widht: 70px;
   height: 70px;
   cursor: pointer;
@@ -7120,11 +7302,32 @@ aside .thumbnail img.organization-logo {
   height: 130px;
   max-width: 100%;
 }
+aside .quality-report {
+  margin-top: 10px;
+}
 aside .quality-report a:hover {
   text-decoration: none;
 }
-aside .quality-report .label {
-  vertical-align: text-top;
+aside .quality-report .medium_number {
+  font-size: 30px;
+  text-align: left;
+}
+aside .quality-report .medium_number label {
+  float: left;
+  width: 100%;
+  margin-top: -6px;
+  font-size: 13px;
+  color: #797979;
+  font-weight: normal;
+}
+aside .quality-report .warning {
+  color: #f5b800;
+}
+aside .quality-report .error {
+  color: #ec364b;
+}
+aside .quality-report .critical {
+  color: #373c42;
 }
 .community_container {
   background-color: #3c5464;
@@ -7136,7 +7339,7 @@ aside .quality-report .label {
   border: 0px;
 }
 .community_container .page-header h2 {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-top: 16px;
   margin-bottom: -4px;
   font-size: 30px;
@@ -7152,30 +7355,67 @@ aside .quality-report .label {
 .community_container h3 {
   color: white;
   margin-bottom: 10px;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
   font-size: 13px;
 }
-.community_container .thumbnail {
+.community_container .reuse {
   border-radius: 0px;
+  border: none;
   height: 210px;
   margin-bottom: 20px;
   overflow: hidden;
   background-color: #fafafa;
+  padding: 0px;
 }
-.community_container .thumbnail .caption {
-  padding: 9px;
+.community_container .reuse a.preview {
+  display: block;
+  height: 110px;
+  text-align: center;
+  overflow: hidden;
+}
+.community_container .reuse a.preview img {
+  min-height: 110px;
+  min-width: 100%;
+}
+.community_container .reuse .caption {
+  padding: 13px;
   color: #6B6B6B;
   font-size: 13px;
   line-height: 16px;
 }
-.community_container .thumbnail h4 {
+.community_container .reuse .caption .author {
+  display: block;
+  height: 28px;
+  position: absolute;
+  bottom: 28px;
+}
+.community_container .reuse .caption .author img {
+  width: 25px;
+  border: 1px solid #7e7e7e;
+  float: left;
+  margin-right: 10px;
+}
+.community_container .reuse .caption .author .user {
+  font-size: 13px;
+  color: #3a3b3d;
+  font-weight: bold;
+  top: -3px;
+  position: relative;
+}
+.community_container .reuse .caption .author .date {
+  float: left;
+  font-size: 10px;
+  top: -5px;
+  position: relative;
+}
+.community_container .reuse h4 {
   margin-top: 4px;
   margin-bottom: 7px;
   line-height: 10px;
 }
-.community_container .thumbnail h4 a {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+.community_container .reuse h4 a {
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   line-height: 1.2em !important;
   color: #131416;
@@ -7197,7 +7437,6 @@ aside .quality-report .label {
 .toc {
   background-color: white;
   border: 1px solid #c3c3c3;
-  border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
   font-size: 13px;
@@ -7238,7 +7477,7 @@ aside .quality-report .label {
 }
 #toc .col-md-1,
 .toc .col-md-1 {
-  margin-left: 14px;
+  margin-left: 20px;
 }
 #toc #infos-list li,
 .toc #infos-list li {
@@ -7260,8 +7499,11 @@ aside .quality-report .label {
 #toc .big_number,
 .toc .big_number {
   color: #a7a7a7;
-  font-size: 36px;
-  margin: 0 0 10px;
+  font-size: 34px;
+  margin: 0 0 0px;
+  font-weight: bold;
+  margin-top: -5px;
+  display: block;
 }
 #toc td,
 .toc td {
@@ -7305,7 +7547,7 @@ aside .quality-report .label {
   border-bottom: 1px dashed #D6D6D6;
 }
 .page-header h1 {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 42px;
   margin-bottom: 3px;
   margin-top: 0px;
@@ -7340,7 +7582,7 @@ section.footer {
 .mw-body h1 .mw-headline,
 .mw-body h2 .mw-headline,
 .mw-body h3 .mw-headline {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .mw-body h1 .btn-group {
   margin-top: 10px;
