@@ -123,18 +123,7 @@ class EtalabTemplate extends BaseTemplate {
 
         </div>
 
-        <section class="footer">
-            <div class="container">
-                <footer>
-                    <p class="pull-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
-                    <p>
-                        &copy; 2013 ETALAB, Inc. &middot;
-                        <a href="#"><?php $this->msg( 'privacy' ); ?></a> &middot;
-                        <a href="#"><?php $this->msg( 'terms' ); ?></a>
-                    </p>
-                </footer>
-            </div>
-        </section>
+        <?php $this->render_footer(); ?>
 
 
         <!--[if lt IE 9]>
@@ -154,143 +143,152 @@ class EtalabTemplate extends BaseTemplate {
     private function render_top_nav() {
         global $wgEtalabHomeUrl;
         ?>
-        <div class="container">
-            <nav class="navbar navbar-default navbar-static-top" role="navigation">
-                <header class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse, .subnav-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
-                </header>
+        <section class="header">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                    <header class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse, .subnav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
+                    </header>
+                </nav>
+            </div>
+        </section>
 
-                <ul class="nav navbar-nav links">
-                    <li>
-                        <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
-                    </li>
-                    <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
-                    <li>
-                        <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
-                            <?php $this->msg( 'open-license' ); ?>
-                        </a>
-                    </li>
-                    <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
-                </ul>
-
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown user">
-                            <button class="btn-link dropdown-toggle" data-toggle="dropdown">
-                                <?php if ($this->data['loggedin']) {
-                                    echo gravatar($this->data['usermail'], 20) . ' ' . $this->data['username'];
-                                } else {
-                                    ?><?php $this->msg( 'sign-in-register' ); ?><?php
-                                }
-                                ?>
-                                <b class="caret"></b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <?php if ($this->data['loggedin']) { ?>
-
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['userpage']['href'] ?>" title="Profil">
-                                        <span class="glyphicon glyphicon-user"></span>
-                                        <?php $this->msg( 'profile' ); ?>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['preferences']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['preferences']['text'] ?>">
-                                        <span class="glyphicon glyphicon-wrench"></span>
-                                        <?php echo $this->data['personal_urls']['preferences']['text'] ?>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['mytalk']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['mytalk']['text'] ?>">
-                                        <span class="glyphicon glyphicon-comment"></span>
-                                        <?php echo $this->data['personal_urls']['mytalk']['text'] ?>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['watchlist']['href'] ?>" title="Liste de suivi">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                        <?php echo $this->data['personal_urls']['watchlist']['text'] ?>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li>
-                                    <a href="<?php echo $this->data['personal_urls']['logout']['href'] ?>"
-                                        title="<?php echo $this->data['personal_urls']['logout']['text'] ?>">
-                                        <span class="glyphicon glyphicon-log-out"></span>
-                                        <?php echo $this->data['personal_urls']['logout']['text'] ?>
-                                    </a>
-                                </li>
-
-                                <?php } else { ?>
-
-                                    <?php if ( $this->data['personal_urls']['login'] ) { ?>
-                                    <!-- login -->
-                                    <li>
-                                        <a href="<?php echo $this->data['personal_urls']['login']['href'] ?>"
-                                            title="<?php echo $this->data['personal_urls']['login']['text'] ?>">
-                                            <span class="glyphicon glyphicon-user"></span>
-                                            <?php echo $this->data['personal_urls']['login']['text'] ?>
-                                        </a>
-                                    </li>
-                                    <?php } ?>
-                                    <?php if ( $this->data['personal_urls']['anonlogin'] ) { ?>
-                                    <!-- login -->
-                                    <li>
-                                        <a href="<?php echo $this->data['personal_urls']['anonlogin']['href'] ?>"
-                                            title="<?php echo $this->data['personal_urls']['anonlogin']['text'] ?>">
-                                            <span class="glyphicon glyphicon-user"></span>
-                                            <?php echo $this->data['personal_urls']['anonlogin']['text'] ?>
-                                        </a>
-                                    </li>
-                                    <?php } ?>
-                                    <!-- register -->
-                                    <?php if ( $this->data['personal_urls']['createaccount'] ) { ?>
-                                    <li>
-                                        <a href="<?php echo $this->data['personal_urls']['createaccount']['href'] ?>"
-                                            title="<?php echo $this->data['personal_urls']['createaccount']['text'] ?>">
-                                            <span class="glyphicon glyphicon-edit"></span>
-                                            <?php echo $this->data['personal_urls']['createaccount']['text'] ?>
-                                        </a>
-                                    </li>
-                                    <?php } ?>
-
-                                <?php } ?>
-
-
-                            </ul>
+        <section class="topmenu">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                    <ul class="nav navbar-nav links">
+                        <li>
+                            <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
                         </li>
-                        <li class="dropdown language">
-                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtolower($this->data['userlang']).'.png') ) ?>" />
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/fr.png') ) ?>" />
-                                        Français
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/en.png') ) ?>" />
-                                        English
-                                    </a>
-                                </li>
-                            </ul>
+                        <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
+                        <li>
+                            <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
+                                <?php $this->msg( 'open-license' ); ?>
+                            </a>
                         </li>
+                        <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user">
+                                <button class="btn-link dropdown-toggle <?php if (!$this->data['loggedin']) { echo "tofix"; }?>" data-toggle="dropdown">
+                                    <?php if ($this->data['loggedin']) {
+                                        echo gravatar($this->data['usermail'], 30) . ' ' . $this->data['username'];
+                                    } else {
+                                        ?><?php $this->msg( 'sign-in-register' ); ?><?php
+                                    }
+                                    ?>
+                                    <b class="caret"></b>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <?php if ($this->data['loggedin']) { ?>
+
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['userpage']['href'] ?>" title="Profil">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <?php $this->msg( 'profile' ); ?>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['preferences']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['preferences']['text'] ?>">
+                                            <span class="glyphicon glyphicon-wrench"></span>
+                                            <?php echo $this->data['personal_urls']['preferences']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['mytalk']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['mytalk']['text'] ?>">
+                                            <span class="glyphicon glyphicon-comment"></span>
+                                            <?php echo $this->data['personal_urls']['mytalk']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['watchlist']['href'] ?>" title="Liste de suivi">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                            <?php echo $this->data['personal_urls']['watchlist']['text'] ?>
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li>
+                                        <a href="<?php echo $this->data['personal_urls']['logout']['href'] ?>"
+                                            title="<?php echo $this->data['personal_urls']['logout']['text'] ?>">
+                                            <span class="glyphicon glyphicon-log-out"></span>
+                                            <?php echo $this->data['personal_urls']['logout']['text'] ?>
+                                        </a>
+                                    </li>
+
+                                    <?php } else { ?>
+
+                                        <?php if ( $this->data['personal_urls']['login'] ) { ?>
+                                        <!-- login -->
+                                        <li>
+                                            <a href="<?php echo $this->data['personal_urls']['login']['href'] ?>"
+                                                title="<?php echo $this->data['personal_urls']['login']['text'] ?>">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                                <?php echo $this->data['personal_urls']['login']['text'] ?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+                                        <?php if ( $this->data['personal_urls']['anonlogin'] ) { ?>
+                                        <!-- login -->
+                                        <li>
+                                            <a href="<?php echo $this->data['personal_urls']['anonlogin']['href'] ?>"
+                                                title="<?php echo $this->data['personal_urls']['anonlogin']['text'] ?>">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                                <?php echo $this->data['personal_urls']['anonlogin']['text'] ?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+                                        <!-- register -->
+                                        <?php if ( $this->data['personal_urls']['createaccount'] ) { ?>
+                                        <li>
+                                            <a href="<?php echo $this->data['personal_urls']['createaccount']['href'] ?>"
+                                                title="<?php echo $this->data['personal_urls']['createaccount']['text'] ?>">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                                <?php echo $this->data['personal_urls']['createaccount']['text'] ?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+
+                                    <?php } ?>
+
+
+                                </ul>
+                            </li>
+                            <li class="dropdown language">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                    <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtolower($this->data['userlang']).'.png') ) ?>" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">
+                                            <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/fr.png') ) ?>" />
+                                            Français
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/en.png') ) ?>" />
+                                            English
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
         <?php
     }
 
@@ -406,6 +404,75 @@ class EtalabTemplate extends BaseTemplate {
         </div>
         <?php
     }
+
+    private function render_footer() { ?>
+        <section class="footer">
+            <div class="container">
+                <footer class="row">
+
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <h5><?php $this->msg( 'open-data' ); ?></h5>
+                        <ul>
+                            <li>
+                                <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
+                            </li>
+                            <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
+                            <li>
+                                <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
+                                    <?php $this->msg( 'open-license' ); ?>
+                                </a>
+                            </li>
+                            <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
+                            <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <h5><?php $this->msg( 'topics' ); ?></h5>
+                        <ul>
+                            <?php foreach ($this->getTopics() as $topic) {
+                                $title = $topic['title'];
+                                $url = $topic['url'];
+                            ?>
+                            <li>
+                                <a href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+                                    <?php echo $title; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <h5><?php $this->msg( 'network' ); ?></h5>
+                        <ul>
+                            <li><a href="http://www.gouvernement.fr/">Gouvernement.fr </a></li>
+                            <li><a href="http://www.france.fr/">France.fr</a></li>
+                            <li><a href="http://www.legifrance.gouv.fr/">Legifrance.gouv.fr </a></li>
+                            <li><a href="http://www.service-public.fr/">Service-public.fr</a></li>
+                            <li><a href="http://opendatafrance.net/">Opendata France</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-3 col-md-4 col-lg-4">
+                        <h5><?php $this->msg( 'contact' ); ?></h5>
+                        <ul>
+                            <li><a href="https://twitter.com/Etalab">Twitter</a></li>
+                            <li><a href="mailto:info@data.gouv.fr">info@data.gouv.fr</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <img class="logo" src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/etalab-logo.png') ) ?>" />
+                        <p>&copy; 2013 ETALAB, Inc.</p>
+                    </div>
+
+                    <p class="bottom-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
+
+                </footer>
+            </div>
+        </section>
+
+    <?php }
 
 
 }

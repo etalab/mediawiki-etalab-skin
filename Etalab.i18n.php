@@ -27,6 +27,10 @@ $messages['en'] = array(
         'publishers' => 'Publishers',
         'open-license' => 'Open license',
         'topics' => 'Topics',
+        'network' => 'Network',
+        'contact' => 'Contact',
+        'credits' => 'Credits',
+        'open-data' => 'The Open Data',
 );
 
 /**
@@ -48,4 +52,8 @@ $messages['fr'] = array(
         'publishers' => 'Producteurs',
         'open-license' => 'License ouverte',
         'topics' => 'Thématiques',
+        'network' => 'Réseau',
+        'contact' => 'Contact',
+        'credits' => 'Credits',
+        'open-data' => "L'Open Data",
 );
