@@ -71,59 +71,61 @@ class EtalabTemplate extends BaseTemplate {
         $this->render_top_nav();
         $this->render_sub_nav();
         ?>
+        <section class="default">
+            <div class="container">
 
-        <div class="container">
-            <?php if($this->data['sitenotice']) { ?>
-                <div id="siteNotice" class="alert alert-info alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?php $this->html('sitenotice') ?>
-                </div>
-            <?php } ?>
+                <?php if($this->data['sitenotice']) { ?>
+                    <div id="siteNotice" class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <?php $this->html('sitenotice') ?>
+                    </div>
+                <?php } ?>
 
 
-            <div class="row">
-                <div class="col-md-9 col-sm-9 smaller">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="nav nav-tabs">
-                                <?php foreach ( $this->data['content_navigation']['namespaces'] as $key => $tab ) { ?>
-                                        <?php echo $this->makeListItem( $key, $tab ); ?>
+                <div class="row">
+                    <div class="col-md-9 col-sm-9 smaller">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs">
+                                    <?php foreach ( $this->data['content_navigation']['namespaces'] as $key => $tab ) { ?>
+                                            <?php echo $this->makeListItem( $key, $tab ); ?>
 
-                                <?php } ?>
-                                <?php foreach ( $this->data['content_navigation']['views'] as $key => $tab ) {
-                                    if ( isset( $tab['class'] ) ) {
-                                        $tab['class'] .= ' pull-right';
-                                    } else {
-                                        $tab['class'] = 'pull-right';
-                                    }
-                                    echo $this->makeListItem( $key, $tab, ['class'=> 'pull-right'] );
+                                    <?php } ?>
+                                    <?php foreach ( $this->data['content_navigation']['views'] as $key => $tab ) {
+                                        if ( isset( $tab['class'] ) ) {
+                                            $tab['class'] .= ' pull-right';
+                                        } else {
+                                            $tab['class'] = 'pull-right';
+                                        }
+                                        echo $this->makeListItem( $key, $tab, ['class'=> 'pull-right'] );
 
-                                } ?>
-                            </ul>
+                                    } ?>
+                                </ul>
+                            </div>
                         </div>
+
+                        <div class="page-header">
+                            <h1 lang="fr">
+                                <?php $this->html( 'title' ) ?>
+                                <small><?php $this->html( 'tagline' ) ?></small>
+                            </h1>
+                        </div>
+                        <?php $this->html( 'subtitle' ) ?>
+                        <div class="row">
+                            <div id="content" class="mw-body col-md-12" role="main">
+                                <?php $this->html( 'bodytext' ) ?>
+                            </div>
+                        </div>
+                        <!-- /bodyContent -->
                     </div>
 
-                    <div class="page-header">
-                        <h1 lang="fr">
-                            <?php $this->html( 'title' ) ?>
-                            <small><?php $this->html( 'tagline' ) ?></small>
-                        </h1>
-                    </div>
-                    <?php $this->html( 'subtitle' ) ?>
-                    <div class="row">
-                        <div id="content" class="mw-body col-md-12" role="main">
-                            <?php $this->html( 'bodytext' ) ?>
-                        </div>
-                    </div>
-                    <!-- /bodyContent -->
+                    <aside class="col-md-3 col-sm-3">
+                        <?php $this->render_aside(); ?>
+                    </aside>
                 </div>
 
-                <aside class="col-md-3 col-sm-3">
-                    <?php $this->render_aside(); ?>
-                </aside>
             </div>
-
-        </div>
+        </section>
 
         <?php $this->render_footer(); ?>
 
@@ -297,70 +299,67 @@ class EtalabTemplate extends BaseTemplate {
     private function render_sub_nav() {
         global $wgEtalabHomeUrl;
         ?>
+        <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
+            <div class="container">
+                <div class="cover-marianne"></div>
 
-        <section class="default">
-            <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
-                <div class="container">
-                    <div class="cover-marianne"></div>
-
-                    <div class="search_bar">
-                        <form class="navbar-form form" role="search"
-                            action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                            <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
-                                <div class="input-group-btn">
-                                    <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
-                                <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
-                                        placeholder="<?php $this->msg('search') ?>">
+                <div class="search_bar">
+                    <form class="navbar-form form" role="search"
+                        action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
+                        <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
+                            <div class="input-group-btn">
+                                <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
-                            <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
-                                <div class="collapse subnav-collapse">
-                                    <div id="where-group" class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-globe"></span>
-                                        </span>
-                                        <input id="where-input" type="search" class="form-control" autocomplete="off"
-                                                placeholder="<?php $this->msg('where') ?>">
-                                        <input id="ext_territory" name="ext_territory" type="hidden" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <span></span>
-                        </form>
-
+                            <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
+                                    placeholder="<?php $this->msg('search') ?>">
+                        </div>
                         <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
-                            <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
-                                <?php $this->msg('topics') ?>
-                                <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
-                                <?php foreach ($this->getTopics() as $topic) {
-                                    $title = $topic['title'];
-                                    $url = $topic['url'];
-                                ?>
-                                <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $title; ?>">
-                                        <?php echo $title; ?>
-                                    </a>
-                                </li>
-                                <?php } ?>
-                            </ul>
+                            <div class="collapse subnav-collapse">
+                                <div id="where-group" class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-globe"></span>
+                                    </span>
+                                    <input id="where-input" type="search" class="form-control" autocomplete="off"
+                                            placeholder="<?php $this->msg('where') ?>">
+                                    <input id="ext_territory" name="ext_territory" type="hidden" />
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
-                            <a class="btn btn-primary btn-dark btn-block"
-                                    title="<?php $this->msg('publish-dataset') ?>"
-                                    href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <?php $this->msg('publish-dataset') ?>
-                            </a>
-                        </div>
+                        <span></span>
+                    </form>
 
+                    <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
+                        <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
+                            <?php $this->msg('topics') ?>
+                            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
+                            <?php foreach ($this->getTopics() as $topic) {
+                                $title = $topic['title'];
+                                $url = $topic['url'];
+                            ?>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+                                    <?php echo $title; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
                     </div>
+
+                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
+                        <a class="btn btn-primary btn-dark btn-block"
+                                title="<?php $this->msg('publish-dataset') ?>"
+                                href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <?php $this->msg('publish-dataset') ?>
+                        </a>
+                    </div>
+
                 </div>
-            </nav>
-        </section>
+            </div>
+        </nav>
         <?php
     }
 
