@@ -296,67 +296,69 @@ class EtalabTemplate extends BaseTemplate {
         global $wgEtalabHomeUrl;
         ?>
 
-        <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
-            <div class="container">
-                <div class="cover-marianne"></div>
+        <section class="default">
+            <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
+                <div class="container">
+                    <div class="cover-marianne"></div>
 
-                <div class="search_bar">
-                    <form class="navbar-form form" role="search"
-                        action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                        <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
-                            <div class="input-group-btn">
-                                <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    <div class="search_bar">
+                        <form class="navbar-form form" role="search"
+                            action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
+                            <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
+                                <div class="input-group-btn">
+                                    <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                                <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
+                                        placeholder="<?php $this->msg('search') ?>">
                             </div>
-                            <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
-                                    placeholder="<?php $this->msg('search') ?>">
-                        </div>
-                        <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
-                            <div class="collapse subnav-collapse">
-                                <div id="where-group" class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-globe"></span>
-                                    </span>
-                                    <input id="where-input" type="search" class="form-control" autocomplete="off"
-                                            placeholder="<?php $this->msg('where') ?>">
-                                    <input id="ext_territory" name="ext_territory" type="hidden" />
+                            <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
+                                <div class="collapse subnav-collapse">
+                                    <div id="where-group" class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-globe"></span>
+                                        </span>
+                                        <input id="where-input" type="search" class="form-control" autocomplete="off"
+                                                placeholder="<?php $this->msg('where') ?>">
+                                        <input id="ext_territory" name="ext_territory" type="hidden" />
+                                    </div>
                                 </div>
                             </div>
+
+                            <span></span>
+                        </form>
+
+                        <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
+                            <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
+                                <?php $this->msg('topics') ?>
+                                <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
+                                <?php foreach ($this->getTopics() as $topic) {
+                                    $title = $topic['title'];
+                                    $url = $topic['url'];
+                                ?>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+                                        <?php echo $title; ?>
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
                         </div>
 
-                        <span></span>
-                    </form>
+                        <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
+                            <a class="btn btn-primary btn-dark btn-block"
+                                    title="<?php $this->msg('publish-dataset') ?>"
+                                    href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <?php $this->msg('publish-dataset') ?>
+                            </a>
+                        </div>
 
-                    <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
-                        <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
-                            <?php $this->msg('topics') ?>
-                            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
-                            <?php foreach ($this->getTopics() as $topic) {
-                                $title = $topic['title'];
-                                $url = $topic['url'];
-                            ?>
-                            <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="<?php echo $url; ?>" title="<?php echo $title; ?>">
-                                    <?php echo $title; ?>
-                                </a>
-                            </li>
-                            <?php } ?>
-                        </ul>
                     </div>
-
-                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
-                        <a class="btn btn-primary btn-dark btn-block"
-                                title="<?php $this->msg('publish-dataset') ?>"
-                                href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
-                            <span class="glyphicon glyphicon-plus"></span>
-                            <?php $this->msg('publish-dataset') ?>
-                        </a>
-                    </div>
-
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </section>
         <?php
     }
 
