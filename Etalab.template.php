@@ -34,14 +34,16 @@ class EtalabTemplate extends BaseTemplate {
     private $topics = null;
 
     private function getTopics($lang='fr') {
-        global $wgEtalabHomeUrl;
-
         if (!$this->topics) {
+            global $wgEtalabHomeUrl, $wgArticlePath;
+            $articlePrefix = str_replace('$1', '', $wgArticlePath);
+
             $this->topics = array();
             $json = file_get_contents(dirname(__FILE__).'/main_topics.json');
             $topics = json_decode($json, true);
             foreach ($topics as $topic) {
                 $url = str_replace('{group}', "$wgEtalabHomeUrl/{lang}/group",  $topic['url']);
+                $url = str_replace('{wiki}/', $articlePrefix,  $url);
                 $this->topics[] = [
                     'title' => $topic['title'],
                     'url' => $url,
