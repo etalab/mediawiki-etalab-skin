@@ -6261,6 +6261,12 @@ td.visible-print {
   text-transform: uppercase;
   color: white;
 }
+.bootstrap-select .btn {
+  border: 1px solid transparent;
+}
+.bootstrap-select .btn.btn-default {
+  border-color: #cccccc;
+}
 .btn-default {
   color: #474747;
 }
@@ -6356,8 +6362,22 @@ fieldset[disabled] .btn-highlight.active {
   height: 30px;
   line-height: 28px;
 }
+.icon-left.btn-punch {
+  padding-left: 47px;
+  position: relative;
+}
+.icon-left.btn-punch .glyphicon {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 37px;
+  height: 37px;
+  line-height: 35px;
+}
 .btn-punch {
-  background-color: #f5b800;
+  background-color: #ffb311;
 }
 @media (min-width: 480px) {
   .btn-punch {
@@ -6366,7 +6386,7 @@ fieldset[disabled] .btn-highlight.active {
     line-height: 1.33;
     border-radius: 6px;
     border-radius: 0px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
   }
 }
@@ -6623,7 +6643,7 @@ body {
   opacity: 0.5;
 }
 .state {
-  background: #fc3f3f !important;
+  background-color: #fc3f3f !important;
 }
 .sidebackground1,
 .sidebackground2,
@@ -7126,7 +7146,7 @@ a.thumbnail-link:hover .thumbnail {
 .footer {
   padding-top: 0px;
   padding-bottom: 40px;
-  background-color: #283843;
+  background-color: #26353f;
   color: white;
   font-size: 12px;
 }
@@ -7407,7 +7427,7 @@ aside .quality-report .medium_number label {
   font-weight: normal;
 }
 aside .quality-report .warning {
-  color: #f5b800;
+  color: #ffb311;
 }
 aside .quality-report .error {
   color: #ec364b;
@@ -7416,10 +7436,10 @@ aside .quality-report .critical {
   color: #373c42;
 }
 .community_container {
-  background-color: #3c5464;
+  background-color: #354651;
 }
 .community_container .page-header {
-  background-color: #2d3e4b;
+  background-color: #28343d;
   color: white;
   border: 0px;
   margin-top: 0;
@@ -7440,9 +7460,7 @@ aside .quality-report .critical {
 }
 @media (min-width: 768px) {
   .community_container .publish-reuse {
-    position: absolute;
-    right: 15px;
-    top: 19px;
+    margin-top: 20px;
   }
 }
 .community_container h3 {
@@ -7620,6 +7638,21 @@ aside .quality-report .critical {
   color: white;
   font-size: 11px;
   line-height: 14px;
+}
+.noncertified {
+  background-color: #eef7f7 !important;
+  background-image: url('../img/bgpt_noncertied.png');
+}
+.noncertified .card {
+  background: none !important;
+  border-color: #cad0d4;
+}
+.noncertified .resources-list .list-group-item {
+  background-color: #e0e3e9;
+  border-color: #e8e8e8;
+}
+.noncertified .btn-default {
+  background: none !important;
 }
 .grey-link a {
   font-weight: bold;

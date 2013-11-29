@@ -30,6 +30,7 @@ $messages['en'] = array(
         'network' => 'Network',
         'contact' => 'Contact',
         'credits' => 'Credits',
+        'metrics' => 'Metrics',
         'open-data' => 'The Open Data',
 );
 
@@ -55,5 +56,6 @@ $messages['fr'] = array(
         'network' => 'Réseau',
         'contact' => 'Contact',
         'credits' => 'Credits',
+        'metrics' => 'Métriques',
         'open-data' => "L'Open Data",
 );
