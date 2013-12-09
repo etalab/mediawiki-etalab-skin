@@ -152,7 +152,7 @@ class EtalabTemplate extends BaseTemplate {
                 <nav class="navbar navbar-default navbar-static-top" role="navigation">
                     <header class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-collapse, .subnav-collapse">
+                                data-target=".navbar-collapse, .subnav-collapse, sidebg-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -192,7 +192,6 @@ class EtalabTemplate extends BaseTemplate {
                                     ?><?php $this->msg( 'sign-in-register' ); ?><?php
                                 }
                                 ?>
-                                <b class="caret"></b>
                             </button>
                             <ul class="dropdown-menu">
                                 <?php if ($this->data['loggedin']) { ?>
@@ -305,35 +304,35 @@ class EtalabTemplate extends BaseTemplate {
                 <div class="cover-marianne"></div>
 
                 <div class="search_bar">
-                    <form class="navbar-form form" role="search"
+                    <form class="navbar-form" role="search"
                         action="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/search'; ?>">
-                        <div class="input-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
-                            <div class="input-group-btn">
-                                <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                            <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
-                                    placeholder="<?php $this->msg('search') ?>">
-                        </div>
-                        <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
-                            <div class="collapse subnav-collapse">
-                                <div id="where-group" class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-globe"></span>
-                                    </span>
-                                    <input id="where-input" type="search" class="form-control" autocomplete="off"
-                                            placeholder="<?php $this->msg('where') ?>">
-                                    <input id="ext_territory" name="ext_territory" type="hidden" />
+                        <div class="form-group col-sm-4 col-md-4 col-lg-3 col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button class="btn" type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
                                 </div>
+                                <input id="search-input" name="q" type="search" class="form-control" autocomplete="off"
+                                        placeholder="<?php $this->msg('search') ?>">
                             </div>
                         </div>
-
-                        <span></span>
+                        <div class="form-group col-sm-2 col-md-2 col-lg-3 col-xs-12 collapse subnav-collapse">
+                            <div id="where-group" class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-globe"></span>
+                                </span>
+                                <input id="where-input" type="search" class="form-control" autocomplete="off"
+                                        placeholder="<?php $this->msg('where') ?>">
+                                <input id="ext_territory" name="ext_territory" type="hidden" />
+                            </div>
+                        </div>
                     </form>
 
-                    <div class="input-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
+                    <div class="form-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
                         <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
                             <?php $this->msg('topics') ?>
-                            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            <span class="glyphicon glyphicon-chevron-down pull-right hidden-sm"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
                             <?php foreach ($this->getTopics() as $topic) {
@@ -349,7 +348,7 @@ class EtalabTemplate extends BaseTemplate {
                         </ul>
                     </div>
 
-                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 hidden-xs">
+                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 collapse subnav-collapse">
                         <a class="btn btn-primary btn-dark btn-block"
                                 title="<?php $this->msg('publish-dataset') ?>"
                                 href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
@@ -414,7 +413,7 @@ class EtalabTemplate extends BaseTemplate {
             <div class="container">
                 <footer class="row">
 
-                    <div class="col-sm-3 col-md-2 col-lg-2">
+                    <section class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
                         <h5><?php $this->msg( 'open-data' ); ?></h5>
                         <ul>
                             <li>
@@ -429,8 +428,8 @@ class EtalabTemplate extends BaseTemplate {
                             <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
                             <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
                         </ul>
-                    </div>
-                    <div class="col-sm-3 col-md-2 col-lg-2">
+                    </section>
+                    <section class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
                         <h5><?php $this->msg( 'topics' ); ?></h5>
                         <ul>
                             <?php foreach ($this->getTopics() as $topic) {
@@ -444,9 +443,9 @@ class EtalabTemplate extends BaseTemplate {
                             </li>
                             <?php } ?>
                         </ul>
-                    </div>
+                    </section>
 
-                    <div class="col-sm-3 col-md-2 col-lg-2">
+                    <section class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
                         <h5><?php $this->msg( 'network' ); ?></h5>
                         <ul>
                             <li><a href="http://www.gouvernement.fr/">Gouvernement.fr </a></li>
@@ -455,20 +454,20 @@ class EtalabTemplate extends BaseTemplate {
                             <li><a href="http://www.service-public.fr/">Service-public.fr</a></li>
                             <li><a href="http://opendatafrance.net/">Opendata France</a></li>
                         </ul>
-                    </div>
+                    </section>
 
-                    <div class="col-sm-3 col-md-4 col-lg-4">
+                    <section class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
                         <h5><?php $this->msg( 'contact' ); ?></h5>
                         <ul>
                             <li><a href="https://twitter.com/Etalab">Twitter</a></li>
                             <li><a href="mailto:info@data.gouv.fr">info@data.gouv.fr</a></li>
                         </ul>
-                    </div>
+                    </section>
 
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+                    <section class="col-xs-9 col-xs-offset-3 col-sm-offset-0 col-sm-2 col-md-2 col-lg-2">
                         <img class="logo" src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/etalab-logo.png') ) ?>" />
                         <p>&copy; 2013 ETALAB, Inc.</p>
-                    </div>
+                    </section>
 
                     <p class="bottom-right"><a href="#"><?php $this->msg( 'back-to-top' ); ?></a></p>
 

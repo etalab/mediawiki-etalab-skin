@@ -5,7 +5,7 @@ module.exports = function(grunt) {
             main: {
                 files: [{
                     expand: true,
-                    cwd: 'bower/bootstrap/fonts',
+                    cwd: 'bower/bootstrap/dist/fonts',
                     src: ['*'],
                     dest: 'fonts/',
                     filter: 'isFile'
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
                         'bower/etalab-assets/js/etalab-site.js',],
                     'js/modernizr.min.js': [
                         'bower/modernizr/modernizr.js',
-                        'bower/respond/respond.src.js'
+                        'bower/respond/dest/respond.src.js'
                     ]
                 }
             }
