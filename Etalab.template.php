@@ -170,6 +170,11 @@ class EtalabTemplate extends BaseTemplate {
                 <nav class="navbar navbar-default navbar-static-top" role="navigation">
                     <ul class="nav navbar-nav links">
                         <li>
+                            <a href="<?php echo homeUrl('', $this->data['userlang']); ?>" title="<?php $this->msg( 'home' ); ?>">
+                                <span class="glyphicon glyphicon-home"></span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
                         </li>
                         <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>

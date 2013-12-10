@@ -6624,7 +6624,7 @@ ul.card-list .card.card-slim .card-body {
   height: 34px !important;
 }
 .side-bgs .bg:nth-child(3) {
-  height: 218px;
+  height: 242px;
 }
 .side-bgs .bg.sidebg-collapse.in {
   display: block;
@@ -7048,6 +7048,11 @@ ul.card-list .card.card-slim .card-body {
 }
 @media (min-width: 500px) {
   .topmenu.navbar-collapse.collapse {
+    height: 60px !important;
+  }
+}
+@media (min-width: 768px) {
+  .topmenu.navbar-collapse.collapse {
     height: 30px !important;
   }
 }
@@ -7114,6 +7119,9 @@ ul.card-list .card.card-slim .card-body {
 }
 .topic-8 {
   background-color: #134d77 !important;
+}
+.topic-9 {
+  background-color: #1b775d !important;
 }
 body {
   color: #373c42;
@@ -7712,7 +7720,7 @@ aside .quality-report .critical {
 .community_container header {
   background-color: #28343d;
   margin-top: 0;
-  height: 80px;
+  min-height: 80px;
 }
 .community_container header h2 {
   font-family: 'Raleway', sans-serif;
@@ -7731,7 +7739,7 @@ aside .quality-report .critical {
 .community_container .page-header {
   color: white;
   border: 0px;
-  margin-top: 0;
+  margin: 0;
 }
 @media (max-width: 767px) {
   .community_container .page-header {
