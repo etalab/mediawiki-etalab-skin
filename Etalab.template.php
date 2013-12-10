@@ -322,7 +322,7 @@ class EtalabTemplate extends BaseTemplate {
                                         placeholder="<?php $this->msg('search') ?>">
                             </div>
                         </div>
-                        <div class="form-group col-sm-2 col-md-2 col-lg-3 col-xs-12 collapse subnav-collapse">
+                        <div class="form-group col-sm-3 col-md-2 col-lg-3 col-xs-12 collapse subnav-collapse">
                             <div id="where-group" class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-globe"></span>
@@ -334,7 +334,7 @@ class EtalabTemplate extends BaseTemplate {
                         </div>
                     </form>
 
-                    <div class="form-group col-sm-2 col-md-2 col-lg-3 col-xs-12">
+                    <div class="form-group col-sm-3 col-md-2 col-lg-3 col-xs-12">
                         <button class="dropdown-toggle btn-block btn-light" data-toggle="dropdown">
                             <?php $this->msg('topics') ?>
                             <span class="glyphicon glyphicon-chevron-down pull-right hidden-sm"></span>
@@ -353,12 +353,18 @@ class EtalabTemplate extends BaseTemplate {
                         </ul>
                     </div>
 
-                    <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12 collapse subnav-collapse">
-                        <a class="btn btn-primary btn-dark btn-block"
+                    <div class="col-sm-2 col-md-4 col-lg-3 col-xs-12 collapse subnav-collapse">
+                        <a class="btn btn-primary btn-dark btn-block hidden-sm"
                                 title="<?php $this->msg('publish-dataset') ?>"
                                 href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
                             <span class="glyphicon glyphicon-plus"></span>
                             <?php $this->msg('publish-dataset') ?>
+                        </a>
+                        <a class="btn btn-primary btn-dark btn-block hidden-xs hidden-md hidden-lg"
+                                title="<?php $this->msg('publish-dataset') ?>"
+                                href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <?php $this->msg('publish-short') ?>
                         </a>
                     </div>
 

@@ -6926,7 +6926,7 @@ ul.card-list .card.card-slim .card-body {
   margin-bottom: 0px;
   margin-top: 34px;
 }
-@media (max-width: 500px) {
+@media (max-width: 767px) {
   .search_bar {
     margin-top: 0;
   }
@@ -6938,6 +6938,22 @@ ul.card-list .card.card-slim .card-body {
   }
   .search_bar .btn-block {
     margin-top: 5px;
+  }
+}
+@media (max-width: 767px) and (min-width: 500px) {
+  .search_bar {
+    margin-top: 10px;
+  }
+  .search_bar .btn-block {
+    margin-bottom: 10px;
+  }
+  .search_bar .btn-block + .btn-block {
+    margin-top: 0;
+  }
+}
+@media (max-width: 992px) and (max-width: 1199px) {
+  .search_bar .btn-block + .btn-block {
+    margin-top: 0;
   }
 }
 .search_bar .col-xs-1,
