@@ -179,8 +179,8 @@ class EtalabTemplate extends BaseTemplate {
                         </li>
                         <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
                         <li>
-                            <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
-                                <?php $this->msg( 'open-license' ); ?>
+                            <a href="http://wiki.etalab2.fr/wiki/Licence_Ouverte_/_Open_Licence">
+                                <?php $this->msg( 'open-licence' ); ?>
                             </a>
                         </li>
                         <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
@@ -434,13 +434,13 @@ class EtalabTemplate extends BaseTemplate {
                             </li>
                             <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
                             <li>
-                                <a href="http://www.etalab.gouv.fr/pages/licence-ouverte-open-licence-5899923.html">
-                                    <?php $this->msg( 'open-license' ); ?>
+                                <a href="http://wiki.etalab2.fr/wiki/Licence_Ouverte_/_Open_Licence">
+                                    <?php $this->msg( 'open-licence' ); ?>
                                 </a>
                             </li>
                             <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
                             <li><a href="http://pfee.leaftr.com">Activiz</a></li>
-                            <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
+                            <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
                             <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
                             <li>
                                 <a href="http://wiki.etalab2.fr/wiki/Conditions_G%C3%A9n%C3%A9rales_d%27Utilisation">
