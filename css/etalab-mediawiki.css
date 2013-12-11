@@ -6172,10 +6172,13 @@ td.visible-print {
   text-transform: uppercase;
   color: white;
 }
-.bootstrap-select .btn {
+.bootstrap-select .btn,
+.md-editor .btn {
   border: 1px solid transparent;
+  border-radius: 4px;
 }
-.bootstrap-select .btn.btn-default {
+.bootstrap-select .btn.btn-default,
+.md-editor .btn.btn-default {
   border-color: #cccccc;
 }
 .btn-default {
@@ -6183,6 +6186,10 @@ td.visible-print {
 }
 .btn-yellow {
   background-color: #ffb311;
+}
+.btn-successful {
+  background-color: #18AC53;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.13) inset;
 }
 .btn-big {
   font-size: 13px;
@@ -7102,6 +7109,7 @@ ul.card-list .card.card-slim .card-body {
   color: #e6e6e6;
   background: #555555;
   vertical-align: middle;
+  height: 30px;
 }
 .topmenu .user button:hover,
 .topmenu .user button:active {
@@ -7110,7 +7118,10 @@ ul.card-list .card.card-slim .card-body {
   background: #3c3c3c;
 }
 .topmenu .user button img {
-  margin-right: 5px;
+  margin-right: -5px;
+}
+.topmenu .user button .username {
+  margin-left: 10px;
 }
 .topmenu .language button {
   vertical-align: middle;
@@ -7670,6 +7681,7 @@ small.fork {
   border-color: #eaeaea;
   border-radius: 0px;
   padding: 0;
+  position: relative;
 }
 .resources-list .list-group-item:hover {
   background-color: #ddd;
@@ -7707,6 +7719,15 @@ small.fork {
   width: 100%;
   height: 600px;
   border: 1px solid #dddddd;
+}
+.resources-list .popover {
+  width: 70%;
+  max-width: 70%;
+}
+.resources-list .tools {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
 aside > * {
   margin-bottom: 10px;
@@ -7809,7 +7830,7 @@ aside .quality-report .critical {
 .community_container .resources-list .add:hover {
   background-color: rgba(255, 255, 255, 0.04);
 }
-.community_container h3 {
+.community_container h3:not(.popover-title) {
   color: white;
   margin-bottom: 10px;
   font-family: 'Raleway', sans-serif;

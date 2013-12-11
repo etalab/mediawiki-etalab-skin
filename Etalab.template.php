@@ -192,9 +192,11 @@ class EtalabTemplate extends BaseTemplate {
                         <li class="dropdown user">
                             <button class="btn-link dropdown-toggle <?php if (!$this->data['loggedin']) { echo "tofix"; }?>" data-toggle="dropdown">
                                 <?php if ($this->data['loggedin']) {
-                                    echo gravatar($this->data['usermail'], 30) . ' ' . $this->data['username'];
+                                    echo gravatar($this->data['usermail'], 30); ?>
+                                    <span class="username"><?php echo $this->data['username']; ?></span>
+                                    <?php
                                 } else {
-                                    ?><?php $this->msg( 'sign-in-register' ); ?><?php
+                                    echo $this->msg( 'sign-in-register' );
                                 }
                                 ?>
                             </button>
@@ -438,6 +440,11 @@ class EtalabTemplate extends BaseTemplate {
                             </li>
                             <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
                             <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
+                            <li>
+                                <a href="http://wiki.etalab2.fr/wiki/Conditions_G%C3%A9n%C3%A9rales_d%27Utilisation">
+                                <?php echo $this->msg( 'terms-of-use' ); ?>
+                                </a>
+                            </li>
                         </ul>
                     </section>
                     <section class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
@@ -471,6 +478,7 @@ class EtalabTemplate extends BaseTemplate {
                         <h5><?php $this->msg( 'contact' ); ?></h5>
                         <ul>
                             <li><a href="https://twitter.com/Etalab">Twitter</a></li>
+                            <li><a href="https://github.com/etalab">GitHub</a></li>
                             <li><a href="mailto:info@data.gouv.fr">info@data.gouv.fr</a></li>
                         </ul>
                     </section>

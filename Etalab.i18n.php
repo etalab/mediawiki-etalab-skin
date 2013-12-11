@@ -14,7 +14,7 @@ $messages = array();
  */
 $messages['en'] = array(
         'skinname-etalab' => "ETALAB",
-        'etalab-desc' => "Bootstrap skin for ETALAB.",
+        'etalab-desc' => "Bootstrap skin for Etalab.",
         'etalab-site-desc' => 'Open platform for french public data',
         'back-to-top' => 'Back to top',
         'sign-in-register' => 'Sign In / Register',
@@ -34,6 +34,7 @@ $messages['en'] = array(
         'metrics' => 'Metrics',
         'open-data' => 'The Open Data',
         'home' => 'Home',
+        'terms-of-use' => 'Terms of use',
 );
 
 /**
@@ -42,7 +43,7 @@ $messages['en'] = array(
  */
 $messages['fr'] = array(
         'skinname-etalab' => "ETALAB",
-        'etalab-desc' => "Skin bootstrap pour TALAB.",
+        'etalab-desc' => "Skin bootstrap pour Etalab.",
         'etalab-site-desc' => 'Plate-forme ouverte des données publiques françaises',
         'back-to-top' => 'Haut de page',
         'sign-in-register' => 'Se connecter / S\'inscrire',
@@ -62,4 +63,5 @@ $messages['fr'] = array(
         'metrics' => 'Métriques',
         'open-data' => "L'Open Data",
         'home' => 'Accueil',
+        'terms-of-use' => "Conditions générales d'utilisation",
 );
