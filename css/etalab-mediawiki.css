@@ -6495,7 +6495,7 @@ ul.card-list .card.card-slim .card-body {
   width: 100%;
   background-color: rgba(34, 51, 70, 0.92);
   margin-top: -1px;
-  padding: 10px 0;
+  padding: 2px 0;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
@@ -6511,15 +6511,13 @@ ul.card-list .card.card-slim .card-body {
   margin-top: 8px;
   opacity: 0.5;
   margin: 0;
-  background-color: none;
-  border-radius: 4px;
 }
 .twitter-typeahead .tt-suggestion {
+  max-height: 34px;
+  min-height: 22.5px;
   display: block;
-  padding: 0px 6px;
-  max-height: 40px;
-  margin-top: 6px;
-  margin-bottom: 8px;
+  padding: 2px 4px;
+  margin: 1px 0;
   font-size: 13px;
   line-height: 15px;
 }
@@ -6551,21 +6549,25 @@ ul.card-list .card.card-slim .card-body {
   margin: 0 0 0 5px;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 40px;
+  max-height: 32px;
 }
 .twitter-typeahead .tt-suggestion div.logo {
   float: left !important;
   display: table-cell;
   width: 40px;
-  height: 35px;
-  margin: 3px;
-  vertical-align: middle;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 4px 0 0;
+  padding: 0;
+  border: none;
   text-align: center;
 }
 .twitter-typeahead .tt-suggestion div.logo img {
   background-color: white;
   max-width: 40px;
-  max-height: 35px;
+  max-height: 30px;
+  vertical-align: middle;
+  margin-top: -1px;
 }
 /**
  * Navbar styles.
@@ -7077,6 +7079,14 @@ ul.card-list .card.card-slim .card-body {
     padding-right: 0;
   }
 }
+.search_sidebar .tt-dropdown-menu,
+.search_bar .tt-dropdown-menu {
+  padding: 8px 0 5px;
+}
+.search_sidebar .tt-suggestion,
+.search_bar .tt-suggestion {
+  margin: 4px 0;
+}
 .topmenu {
   background-color: #f0f0f0;
 }
@@ -7194,13 +7204,21 @@ section.content {
 img.scalable {
   max-width: 100%;
 }
+@media (min-width: 1200px) {
+  .modal .modal-dialog {
+    width: 700px;
+  }
+}
 .modal .modal-header,
 .modal .modal-footer {
-  background-color: #ffffff;
+  padding: 12px;
 }
 .modal .modal-footer {
   margin-top: 0;
   text-align: center;
+}
+.modal .modal-body img {
+  max-width: 100%;
 }
 /**
  * Form adjustments
@@ -7580,6 +7598,9 @@ small.fork {
 .dataset-container .page-header aside a:active .thumbnail {
   text-decoration: none;
 }
+.dataset-container .resources-list {
+  margin-top: 30px;
+}
 @media (min-width: 768px) {
   .smaller {
     padding-right: 40px;
@@ -7669,9 +7690,6 @@ small.fork {
 }
 .related-panel .thumbnail img {
   border: 1px solid #dcdcdc;
-}
-.resources-list {
-  margin-top: 30px;
 }
 .resources-list .list-group-item {
   height: 54px;
