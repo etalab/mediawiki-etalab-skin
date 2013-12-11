@@ -438,6 +438,8 @@ class EtalabTemplate extends BaseTemplate {
                                     <?php $this->msg( 'open-license' ); ?>
                                 </a>
                             </li>
+                            <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
+                            <li><a href="http://pfee.leaftr.com">Activiz</a></li>
                             <li><a href="http://www.etalab.gouv.fr/">ETALAB</a></li>
                             <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
                             <li>
