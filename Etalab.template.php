@@ -189,12 +189,31 @@ class EtalabTemplate extends BaseTemplate {
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown user">
+                        <li class="dropdown language">
+                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtolower($this->data['userlang']).'.png') ) ?>" />
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/fr.png') ) ?>" />
+                                        Français
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/en.png') ) ?>" />
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user login">
                             <button class="btn-link dropdown-toggle <?php if (!$this->data['loggedin']) { echo "tofix"; }?>" data-toggle="dropdown">
-                                <?php if ($this->data['loggedin']) {
-                                    echo gravatar($this->data['usermail'], 30); ?>
+                                <?php if ($this->data['loggedin']) { ?>
                                     <span class="username"><?php echo $this->data['username']; ?></span>
                                     <?php
+                                    echo gravatar($this->data['usermail'], 30);
                                 } else {
                                     echo $this->msg( 'sign-in-register' );
                                 }
@@ -276,25 +295,6 @@ class EtalabTemplate extends BaseTemplate {
 
                             </ul>
                         </li>
-                        <li class="dropdown language">
-                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/'.strtolower($this->data['userlang']).'.png') ) ?>" />
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/fr.png') ) ?>" />
-                                        Français
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/en.png') ) ?>" />
-                                        English
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -356,7 +356,7 @@ class EtalabTemplate extends BaseTemplate {
                     </div>
 
                     <div class="col-sm-2 col-md-4 col-lg-3 col-xs-12 collapse subnav-collapse">
-                        <a class="btn btn-primary btn-dark btn-block hidden-sm"
+                        <a class="btn btn-primary btn-dark btn-block btn-md hidden-sm icon-left"
                                 title="<?php $this->msg('publish-dataset') ?>"
                                 href="<?php echo $wgEtalabHomeUrl . '/' . $this->data['userlang'] .'/dataset/new'; ?>">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -430,20 +430,20 @@ class EtalabTemplate extends BaseTemplate {
                         <h5><?php $this->msg( 'open-data' ); ?></h5>
                         <ul>
                             <li>
-                                <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
+                                <a href="http://wiki.data.gouv.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
                             </li>
                             <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
                             <li>
-                                <a href="http://wiki.etalab2.fr/wiki/Licence_Ouverte_/_Open_Licence">
+                                <a href="http://wiki.data.gouv.fr/wiki/Licence_Ouverte_/_Open_Licence">
                                     <?php $this->msg( 'open-licence' ); ?>
                                 </a>
                             </li>
                             <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
                             <li><a href="http://pfee.leaftr.com">Activiz</a></li>
                             <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
-                            <li><a href="http://wiki.etalab2.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
+                            <li><a href="http://wiki.data.gouv.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
                             <li>
-                                <a href="http://wiki.etalab2.fr/wiki/Conditions_G%C3%A9n%C3%A9rales_d%27Utilisation">
+                                <a href="http://wiki.data.gouv.fr/wiki/Conditions_G%C3%A9n%C3%A9rales_d%27Utilisation">
                                 <?php echo $this->msg( 'terms-of-use' ); ?>
                                 </a>
                             </li>
