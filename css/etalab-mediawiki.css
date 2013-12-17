@@ -7349,7 +7349,7 @@ section.error .animation {
 section.form {
   padding: 30px 0;
   position: relative;
-  background-color: #c6e3f2;
+  background-color: #73badf;
 }
 section.form .animation {
   margin: -30px 0;
@@ -7362,6 +7362,9 @@ section.message {
 section.message .animation {
   margin-top: -30px;
 }
+.md-editor > textarea.md-input {
+  background: #f6f6f6;
+}
 .animation {
   position: absolute !important;
   width: 100%!important;
@@ -7372,15 +7375,31 @@ section.message .animation {
 .animover {
   padding: 25px;
   border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .animover .page-header {
   margin-top: 0;
+  border: none;
 }
 .animover .page-header h1,
 .animover .page-header h2,
 .animover .page-header h3 {
+  color: black;
   margin-top: 0;
+  font-family: 'Raleway', sans-serif;
+}
+.animover .page-header a {
+  text-decoration: none;
+}
+.animover .nav-pills {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.animover .nav-pills > li:not(.active) > a {
+  color: #999999;
+}
+.animover .nav-pills > li > a:hover {
+  color: #555555;
 }
 img.scalable {
   max-width: 100%;
