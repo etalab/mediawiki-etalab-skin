@@ -182,7 +182,7 @@ class EtalabTemplate extends BaseTemplate {
                             </a>
                         </li>
                         <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
-                        <li><a href="http://pfee.leaftr.com">Activiz</a></li>
+                        <!--li><a href="http://pfee.leaftr.com">Activiz</a></li-->
                         <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
                     </ul>
 
