@@ -61,7 +61,7 @@ module.exports = function(grunt) {
             options: {
                 banner: [
                     '/*! <%= pkg.name %> v<%= grunt.template.today("yyyy-mm-dd HH:MM") %>',
-                    ' * http://www.etalab2.fr',
+                    ' * http://www.data.gouv.fr',
                     ' * Copyright (c) <%= grunt.template.today("yyyy") %> Etalab',
                     ' * GNU AFFERO GENERAL PUBLIC LICENSE',
                     ' */',

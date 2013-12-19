@@ -156,7 +156,7 @@ class EtalabTemplate extends BaseTemplate {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">Etalab2.fr</a>
+                        <a class="navbar-brand" href="<?php echo $wgEtalabHomeUrl; ?>">data.gouv.fr</a>
                         <p class="navbar-text pull-right"><?php $this->msg( 'etalab-site-desc' ); ?></p>
                     </header>
                 </nav>
@@ -173,11 +173,11 @@ class EtalabTemplate extends BaseTemplate {
                             </a>
                         </li>
                         <li>
-                            <a href="http://wiki.etalab2.fr/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
+                            <a href="/wiki/FAQ"><?php $this->msg( 'faq' ); ?></a>
                         </li>
                         <li><a href="<?php echo homeUrl('organization', $this->data['userlang']); ?>"><?php $this->msg('publishers'); ?></a></li>
                         <li>
-                            <a href="http://wiki.etalab2.fr/wiki/Licence_Ouverte_/_Open_Licence">
+                            <a href="/wiki/Licence_Ouverte_/_Open_Licence">
                                 <?php $this->msg( 'open-licence' ); ?>
                             </a>
                         </li>
