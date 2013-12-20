@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
+@import url(//fonts.googleapis.com/css?family=Raleway:400,700,500);
 /**
  * Common site styles and helpers.
  */
@@ -6522,34 +6522,6 @@ select.twitter-typeahead .tt-hint {
 textarea.twitter-typeahead .tt-hint {
   height: auto;
 }
-.twitter-typeahead .hint-sm {
-  height: 30px;
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 3px;
-}
-select.twitter-typeahead .hint-sm {
-  height: 30px;
-  line-height: 30px;
-}
-textarea.twitter-typeahead .hint-sm {
-  height: auto;
-}
-.twitter-typeahead .hint-lg {
-  height: 46px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
-}
-select.twitter-typeahead .hint-lg {
-  height: 46px;
-  line-height: 46px;
-}
-textarea.twitter-typeahead .hint-lg {
-  height: auto;
-}
 .twitter-typeahead .tt-dropdown-menu {
   color: white;
   width: 100%;
@@ -6629,51 +6601,69 @@ textarea.twitter-typeahead .hint-lg {
   vertical-align: middle;
   margin-top: -1px;
 }
-.input-lg.tt-query,
-.hint-lg.tt-hint,
-.input-group.input-group-lg .tt-query,
-.input-group.input-group-lg .tt-hint {
-  height: 46px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
+.input-group .twitter-typeahead:first-child .tt-hint,
+.input-group .twitter-typeahead:first-child .tt-query {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
-select.input-lg.tt-query,
-select.hint-lg.tt-hint,
-select.input-group.input-group-lg .tt-query,
-select.input-group.input-group-lg .tt-hint {
-  height: 46px;
-  line-height: 46px;
+.input-group .twitter-typeahead:last-child .tt-hint,
+.input-group .twitter-typeahead:last-child .tt-query {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
-textarea.input-lg.tt-query,
-textarea.hint-lg.tt-hint,
-textarea.input-group.input-group-lg .tt-query,
-textarea.input-group.input-group-lg .tt-hint {
-  height: auto;
-}
-.input-sm.tt-query,
-.hint-sm.tt-hint,
-.input-group.input-group-sm .tt-query,
-.input-group.input-group-sm .tt-hint {
+.input-group.input-group-sm .twitter-typeahead .tt-hint,
+.input-group.input-group-sm .twitter-typeahead .tt-query {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
-select.input-sm.tt-query,
-select.hint-sm.tt-hint,
-select.input-group.input-group-sm .tt-query,
-select.input-group.input-group-sm .tt-hint {
+select.input-group.input-group-sm .twitter-typeahead .tt-hint,
+select.input-group.input-group-sm .twitter-typeahead .tt-query {
   height: 30px;
   line-height: 30px;
 }
-textarea.input-sm.tt-query,
-textarea.hint-sm.tt-hint,
-textarea.input-group.input-group-sm .tt-query,
-textarea.input-group.input-group-sm .tt-hint {
+textarea.input-group.input-group-sm .twitter-typeahead .tt-hint,
+textarea.input-group.input-group-sm .twitter-typeahead .tt-query {
   height: auto;
+}
+.input-group.input-group-sm .twitter-typeahead:first-child .tt-hint,
+.input-group.input-group-sm .twitter-typeahead:first-child .tt-query {
+  border-radius: 3px 0 0 3px;
+}
+.input-group.input-group-sm .twitter-typeahead:last-child .tt-hint,
+.input-group.input-group-sm .twitter-typeahead:last-child .tt-query {
+  border-radius: 0 3px 3px 0;
+}
+.input-group.input-group-lg .twitter-typeahead .tt-hint,
+.input-group.input-group-lg .twitter-typeahead .tt-query {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+select.input-group.input-group-lg .twitter-typeahead .tt-hint,
+select.input-group.input-group-lg .twitter-typeahead .tt-query {
+  height: 46px;
+  line-height: 46px;
+}
+textarea.input-group.input-group-lg .twitter-typeahead .tt-hint,
+textarea.input-group.input-group-lg .twitter-typeahead .tt-query {
+  height: auto;
+}
+.input-group.input-group-lg .twitter-typeahead:first-child .tt-hint,
+.input-group.input-group-lg .twitter-typeahead:first-child .tt-query {
+  border-radius: 6px 0 0 6px;
+}
+.input-group.input-group-lg .twitter-typeahead:last-child .tt-hint,
+.input-group.input-group-lg .twitter-typeahead:last-child .tt-query {
+  border-radius: 0 6px 6px 0;
+}
+.jumbotron .input-group {
+  font-size: 14px;
+  line-height: 1.428571429;
 }
 /**
  * Navbar styles.
@@ -6899,10 +6889,11 @@ textarea.input-group.input-group-sm .tt-hint {
     margin-right: 0;
   }
 }
-.navbar-subnav input[type="search"] {
+.navbar-subnav .tt-hint,
+.navbar-subnav .tt-query {
   color: #bfbfbf;
   background-color: #ffffff;
-  border-radius: 0;
+  border-radius: 0!important;
   border: none;
 }
 .navbar-subnav .tt-hint {
