@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Axel Haustant"
+        ]
+    },
+    "skinname-etalab": "ETALAB",
+    "etalab-desc": "Bootstrap skin for Etalab.",
+    "etalab-site-desc": "Open platform for french public data",
+    "back-to-top": "Back to top",
+    "sign-in-register": "Sign In / Register",
+    "profile": "Profile",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "where": "Where ?",
+    "publish-dataset": "Publish a dataset !",
+    "publish-short": "Publish !",
+    "faq": "How it works ?",
+    "publishers": "Publishers",
+    "open-licence": "Open Licence",
+    "topics": "Topics",
+    "network": "Network",
+    "contact": "Contact",
+    "credits": "Credits",
+    "metrics": "Metrics",
+    "open-data": "The Open Data",
+    "home": "Home",
+    "terms-of-use": "Terms of use"
+}
