@@ -1,9 +1,4 @@
 {
-    "@metadata": {
-        "authors": [
-            "Axel Haustant"
-        ]
-    },
     "skinname-etalab": "ETALAB",
     "etalab-desc": "Skin bootstrap pour Etalab.",
     "etalab-site-desc": "Plateforme ouverte des données publiques françaises",

@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[mediawiki-etalab-skin.php]
+file_filter = i18n/<lang>.json
+source_file = i18n/en.json
+source_lang = en
+type = KEYVALUEJSON
