@@ -87,8 +87,8 @@ module.exports = function(grunt) {
                         'bower/jquery.dotdotdot/src/js/jquery.dotdotdot.js',
                         'bower/swig/index.js',
                         'bower/etalab-assets/js/etalab-site.js',],
-                    'js/modernizr.min.js': [
-                        'bower/modernizr/modernizr.js',
+                    'js/iecompat.min.js': [
+                        'bower/html5shiv/dist/html5shiv.js',
                         'bower/respond/dest/respond.src.js'
                     ]
                 }

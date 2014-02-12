@@ -39,8 +39,8 @@ class SkinEtalab extends SkinTemplate {
             $out->addHeadItem('style',
                 '<link rel="stylesheet" media="screen" href="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/css/etalab-mediawiki{$min}.css\">"
             );
-            $out->addHeadItem( 'modernizr',
-              '<!--[if lt IE 9]><script src="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/js/modernizr.min.js\"></script><![endif]-->"
+            $out->addHeadItem('iecompat',
+              '<!--[if lt IE 9]><script src="'.htmlspecialchars( $wgLocalStylePath )."/{$this->stylename}/js/iecompat.min.js\"></script><![endif]-->"
             );
 
             $out->addHeadItem('responsive', '<meta name="viewport" content="width=device-width, initial-scale=1.0">');
