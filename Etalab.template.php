@@ -184,6 +184,7 @@ class EtalabTemplate extends BaseTemplate {
                         <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
                         <!--li><a href="http://pfee.leaftr.com">Activiz</a></li-->
                         <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
+                        <li><a href="http://cada.data.gouv.fr/">CADA</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -471,6 +472,7 @@ class EtalabTemplate extends BaseTemplate {
                             <li><a href="http://www.legifrance.gouv.fr/">Legifrance.gouv.fr </a></li>
                             <li><a href="http://www.service-public.fr/">Service-public.fr</a></li>
                             <li><a href="http://opendatafrance.net/">Opendata France</a></li>
+                            <li><a href="http://www.cada.fr/">CADA.fr</a></li>
                         </ul>
                     </section>
 
