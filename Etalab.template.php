@@ -209,6 +209,12 @@ class EtalabTemplate extends BaseTemplate {
                                         English
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="<?php echo htmlspecialchars( $this->getSkin()->getSkinStylePath('img/flags/es.png') ) ?>" />
+                                        Español
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown user login">
