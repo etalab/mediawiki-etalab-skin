@@ -182,7 +182,11 @@ class EtalabTemplate extends BaseTemplate {
                             </a>
                         </li>
                         <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
-                        <!--li><a href="http://pfee.leaftr.com">Activiz</a></li-->
+                        <li>
+                            <a href="//wiki.data.gouv.fr/wiki/Outillage_pour_les_datavisualisations">
+                                <?php $this->msg( 'tools' ); ?>
+                            </a>
+                        </li>
                         <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
                         <li><a href="http://cada.data.gouv.fr/">CADA</a></li>
                     </ul>
@@ -479,7 +483,7 @@ class EtalabTemplate extends BaseTemplate {
                     <section class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
                         <h5><?php $this->msg( 'contact' ); ?></h5>
                         <ul>
-                            <li><a href="https://twitter.com/Etalab">Twitter</a></li>
+                            <li><a href="https://twitter.com/datagouvfr">Twitter</a></li>
                             <li><a href="https://github.com/etalab">GitHub</a></li>
                             <li><a href="mailto:info@data.gouv.fr">info@data.gouv.fr</a></li>
                         </ul>

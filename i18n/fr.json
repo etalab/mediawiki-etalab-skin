@@ -3,12 +3,12 @@
     "etalab-desc": "Skin bootstrap pour Etalab.",
     "etalab-site-desc": "Plateforme ouverte des données publiques françaises",
     "back-to-top": "Haut de page",
-    "sign-in-register": "Se connecter / S'inscrire",
+    "sign-in-register": "Connexion / Inscription",
     "profile": "Profil",
     "privacy": "Vie privée",
     "terms": "Conditions légales",
     "where": "Où ?",
-    "publish-dataset": "Publiez une série de données !",
+    "publish-dataset": "Publiez un jeu de données !",
     "publish-short": "Publiez !",
     "faq": "Comment ça marche ?",
     "publishers": "Producteurs",
@@ -20,5 +20,6 @@
     "metrics": "Métriques",
     "open-data": "L'Open Data",
     "home": "Accueil",
-    "terms-of-use": "Conditions générales d'utilisation"
+    "terms-of-use": "Conditions générales d'utilisation",
+    "tools": "Outils"
 }
