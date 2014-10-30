@@ -181,7 +181,7 @@ class EtalabTemplate extends BaseTemplate {
                                 <?php $this->msg( 'open-licence' ); ?>
                             </a>
                         </li>
-                        <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
+                        <li><a href="<?php echo homeUrl('dashboard', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
                         <li>
                             <a href="//wiki.data.gouv.fr/wiki/Outillage_pour_les_datavisualisations">
                                 <?php $this->msg( 'tools' ); ?>
@@ -447,8 +447,7 @@ class EtalabTemplate extends BaseTemplate {
                                     <?php $this->msg( 'open-licence' ); ?>
                                 </a>
                             </li>
-                            <li><a href="<?php echo homeUrl('metrics', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
-                            <li><a href="http://pfee.leaftr.com">Activiz</a></li>
+                            <li><a href="<?php echo homeUrl('dashboard', $this->data['userlang']); ?>"><?php $this->msg('metrics'); ?></a></li>
                             <li><a href="http://www.etalab.gouv.fr/">Etalab</a></li>
                             <li><a href="//wiki.data.gouv.fr/wiki/Cr%C3%A9dits"><?php $this->msg( 'credits' ); ?></a></li>
                             <li>
